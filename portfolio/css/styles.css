@@ -141,7 +141,10 @@ img {
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1rem;
-  animation: hero-title-sway 2.5s ease-in-out infinite;
+}
+
+.hero__title:hover {
+  animation: hero-title-sway 0.8s ease-in-out infinite;
 }
 
 @keyframes hero-title-sway {
