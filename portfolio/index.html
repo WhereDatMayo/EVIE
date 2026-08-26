@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio">
+  <title>Your Name | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#" class="nav__logo">Your Name</a>
+      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container">
+        <p class="hero__greeting">Hello, I'm</p>
+        <h1 class="hero__title">Nancy Ma</h1>
+        <p class="hero__subtitle">Im a fat chud</p>
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--secondary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section__title">About</h2>
+        <div class="about__content">
+          <p>
+            Brief introduction about yourself. Replace this with a short bio
+            covering your background, interests, and what you're currently working on.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Skills</h2>
+        <ul class="skills__grid">
+          <li class="skill-card">Skill One</li>
+          <li class="skill-card">Skill Two</li>
+          <li class="skill-card">Skill Three</li>
+          <li class="skill-card">Skill Four</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+        <div class="projects__grid">
+          <article class="project-card">
+            <div class="project-card__image"></div>
+            <div class="project-card__body">
+              <h3>Project Title</h3>
+              <p>Short project description goes here.</p>
+              <div class="project-card__links">
+                <a href="#">Live Demo</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__image"></div>
+            <div class="project-card__body">
+              <h3>Project Title</h3>
+              <p>Short project description goes here.</p>
+              <div class="project-card__links">
+                <a href="#">Live Demo</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card__image"></div>
+            <div class="project-card__body">
+              <h3>Project Title</h3>
+              <p>Short project description goes here.</p>
+              <div class="project-card__links">
+                <a href="#">Live Demo</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">Contact</h2>
+        <p class="contact__intro">Open to opportunities and collaborations. Reach out anytime.</p>
+        <div class="contact__links">
+          <a href="mailto:you@example.com" class="contact__link">you@example.com</a>
+          <a href="https://github.com/yourusername" class="contact__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/yourusername" class="contact__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
