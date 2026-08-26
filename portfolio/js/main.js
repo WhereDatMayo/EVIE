@@ -1,18 +1,7 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+const now = new Date();
+const dows = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const dowEl = document.getElementById("date-dow");
+const numEl = document.getElementById("date-num");
 
-const toggle = document.querySelector(".nav__toggle");
-const navLinks = document.querySelector(".nav__links");
-
-toggle.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("is-open");
-  toggle.classList.toggle("is-active", isOpen);
-  toggle.setAttribute("aria-expanded", isOpen);
-});
-
-navLinks.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("is-open");
-    toggle.classList.remove("is-active");
-    toggle.setAttribute("aria-expanded", "false");
-  });
-});
+if (dowEl) dowEl.textContent = dows[now.getDay()];
+if (numEl) numEl.textContent = String(now.getDate());

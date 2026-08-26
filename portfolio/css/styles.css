@@ -1,18 +1,31 @@
-:root {
-  --color-bg: #0f1117;
-  --color-bg-alt: #161b22;
-  --color-surface: #1c2128;
-  --color-text: #e6edf3;
-  --color-text-muted: #8b949e;
-  --color-accent: #58a6ff;
-  --color-accent-hover: #79b8ff;
-  --color-border: #30363d;
+/* Portfolio 2027 — adapted from Figma Desktop - 1 / Desktop - 2 */
 
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --max-width: 1100px;
-  --header-height: 4rem;
-  --radius: 0.5rem;
-  --transition: 200ms ease;
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Kosugi Maru";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/kosugi-maru-latin.woff2") format("woff2");
+}
+
+:root {
+  --ink: #0d0000;
+  --paper: #ffffff;
+  --preview: #d9d9d9;
+  --nva-green: #62b12d;
+  --ethos-blue: #2a44c5;
+  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Kosugi Maru", "Hiragino Maru Gothic ProN", "Segoe UI", sans-serif;
+  --home-inset: 67px;
+  --page-max: 1440px;
 }
 
 *,
@@ -28,341 +41,355 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  line-height: 1.6;
+  font-family: var(--font);
+  background: var(--paper);
+  color: var(--ink);
   min-height: 100vh;
-}
-
-a {
-  color: var(--color-accent);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-
-a:hover {
-  color: var(--color-accent-hover);
+  line-height: 1.21;
 }
 
 img {
+  display: block;
   max-width: 100%;
-  display: block;
 }
 
-.container {
-  width: min(100% - 2rem, var(--max-width));
+a {
+  color: inherit;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 0.75rem;
+  z-index: 200;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Home — Figma Desktop - 2 (30:15)
+   -------------------------------------------------------------------------- */
+
+.home {
+  width: min(100%, var(--page-max));
   margin-inline: auto;
+  padding: 21px var(--home-inset) 80px;
 }
 
-/* Header & Navigation */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: var(--header-height);
-  background-color: rgba(15, 17, 23, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: min(100% - 2rem, var(--max-width));
-  margin-inline: auto;
-}
-
-.nav__logo {
+.home__title {
   font-weight: 700;
-  font-size: 1.125rem;
-  color: var(--color-text);
+  font-size: clamp(2.5rem, 8.2vw, 100px);
+  line-height: 1.21;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
 }
 
-.nav__logo:hover {
-  color: var(--color-accent);
-}
-
-.nav__links {
+.home__body {
   display: flex;
-  gap: 2rem;
-  list-style: none;
+  align-items: flex-start;
+  gap: 58px;
+  margin-top: 0;
 }
 
-.nav__links a {
-  color: var(--color-text-muted);
-  font-size: 0.9375rem;
-  font-weight: 500;
-}
-
-.nav__links a:hover {
-  color: var(--color-text);
-}
-
-.nav__toggle {
-  display: none;
+.home__rail {
+  display: flex;
   flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.25rem;
+  gap: 12px;
+  flex: 0 0 238px;
+  width: 238px;
 }
 
-.nav__toggle span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: var(--color-text);
-  transition: transform var(--transition), opacity var(--transition);
-}
-
-/* Hero */
-
-.hero {
+.stamp {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - var(--header-height));
-  padding-block: 4rem;
+  gap: 4px;
+  width: 75px;
+  padding: 12px 8px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--ink);
 }
 
-.hero__greeting {
-  color: var(--color-accent);
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+.stamp__dow,
+.stamp__num {
+  font-size: 12px;
+  line-height: normal;
 }
 
-.hero__title {
-  display: inline-block;
-  font-size: clamp(2.5rem, 6vw, 4rem);
+.stamp__dow {
   font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1rem;
+  width: 100%;
 }
 
-.hero__title:hover {
-  animation: hero-title-sway 0.8s ease-in-out infinite;
-}
-
-@keyframes hero-title-sway {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  50% {
-    transform: translateX(48px);
-  }
-}
-
-.hero__subtitle {
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-  color: var(--color-text-muted);
-  max-width: 36ch;
-  margin-bottom: 2rem;
-}
-
-.hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-/* Buttons */
-
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius);
-  font-weight: 500;
-  font-size: 0.9375rem;
-  transition: background-color var(--transition), color var(--transition), border-color var(--transition);
-}
-
-.btn--primary {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-}
-
-.btn--primary:hover {
-  background-color: var(--color-accent-hover);
-  color: var(--color-bg);
-}
-
-.btn--secondary {
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.btn--secondary:hover {
-  border-color: var(--color-text-muted);
-  color: var(--color-text);
-}
-
-/* Sections */
-
-.section {
-  padding-block: 5rem;
-}
-
-.section--alt {
-  background-color: var(--color-bg-alt);
-}
-
-.section__title {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-}
-
-.section__title::after {
-  content: "";
-  display: block;
-  width: 3rem;
-  height: 3px;
-  background-color: var(--color-accent);
-  margin-top: 0.75rem;
-  border-radius: 2px;
-}
-
-/* About */
-
-.about__content {
-  max-width: 65ch;
-  color: var(--color-text-muted);
-  font-size: 1.0625rem;
-}
-
-/* Skills */
-
-.skills__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-  list-style: none;
-}
-
-.skill-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 1.25rem 1rem;
+.stamp__num {
+  font-weight: 400;
   text-align: center;
-  font-weight: 500;
-  font-size: 0.9375rem;
+  width: 100%;
 }
 
-/* Projects */
-
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+.studies {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 238px;
+  min-height: 185px;
+  padding: 12px 24px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--ink);
 }
 
-.project-card {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
+.studies__label {
+  font-weight: 700;
+}
+
+.studies a {
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.studies a:hover,
+.studies a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+.home__preview {
+  flex: 1 1 auto;
+  width: min(100%, 1004px);
+  height: 680px;
+  background: var(--preview);
   overflow: hidden;
-  transition: border-color var(--transition);
 }
 
-.project-card:hover {
-  border-color: var(--color-text-muted);
+.home__preview a,
+.home__preview img {
+  width: 100%;
+  height: 100%;
 }
 
-.project-card__image {
-  aspect-ratio: 16 / 9;
-  background-color: var(--color-bg-alt);
-  border-bottom: 1px solid var(--color-border);
+.home__preview img {
+  object-fit: contain;
+  object-position: top center;
+  background: var(--preview);
 }
 
-.project-card__body {
-  padding: 1.25rem;
+.home__preview-empty {
+  width: 100%;
+  height: 100%;
+  background: var(--preview);
 }
 
-.project-card__body h3 {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
+/* --------------------------------------------------------------------------
+   NVA case study — Figma Desktop - 1 (24:5)
+   6 equal columns, 22px gap. Side columns are the page margins.
+   -------------------------------------------------------------------------- */
+
+.nva-page {
+  position: relative;
+  width: min(100%, var(--page-max));
+  margin-inline: auto;
+  min-height: 100vh;
 }
 
-.project-card__body p {
-  color: var(--color-text-muted);
-  font-size: 0.9375rem;
+.nva-back {
+  position: absolute;
+  left: var(--home-inset);
+  top: 21px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.nva-back:hover {
+  text-decoration: underline;
+}
+
+.nva-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 0;
+  padding: 154px 0 133px;
+  align-items: start;
+}
+
+.nva-title {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  font-synthesis: none;
+  line-height: normal;
+  width: min(100%, 362px);
+  color: #000;
+  margin-bottom: 63px;
+  white-space: nowrap;
+}
+
+.nva-frame {
+  grid-column: 2 / span 4;
+  grid-row: 2;
+  width: 100%;
+  height: 477px;
+  border: 10px solid var(--nva-green);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--preview);
+  margin-bottom: 131px;
+}
+
+.nva-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.nva-tile {
+  grid-row: 3;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: var(--preview);
+}
+
+.nva-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.nva-tile--nva {
+  grid-column: 2;
+  border: 9px solid var(--nva-green);
+}
+
+.nva-tile--huggies {
+  grid-column: 3;
+}
+
+.nva-tile--ethos {
+  grid-column: 4;
+  border: 3px solid var(--ethos-blue);
+}
+
+.nva-tile--sjsu {
+  grid-column: 5;
+}
+
+/* --------------------------------------------------------------------------
+   About (same type system; not in the Figma frames)
+   -------------------------------------------------------------------------- */
+
+.about {
+  width: min(100% - 2 * var(--home-inset), 720px);
+  margin: 21px auto 80px;
+}
+
+.about h1 {
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 48px);
+  margin: 1.5rem 0 1rem;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 1.5;
   margin-bottom: 1rem;
 }
 
-.project-card__links {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+.about a {
+  font-weight: 700;
 }
 
-/* Contact */
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
 
-.contact__intro {
-  color: var(--color-text-muted);
-  margin-bottom: 1.5rem;
-  max-width: 50ch;
-}
-
-.contact__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.contact__link {
-  font-weight: 500;
-}
-
-/* Footer */
-
-.site-footer {
-  padding-block: 2rem;
-  border-top: 1px solid var(--color-border);
-  text-align: center;
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-}
-
-/* Mobile Navigation */
-
-@media (max-width: 640px) {
-  .nav__toggle {
-    display: flex;
+@media (max-width: 900px) {
+  .home {
+    padding: 24px 20px 48px;
   }
 
-  .nav__links {
-    position: fixed;
-    inset: var(--header-height) 0 0 0;
+  .home__body {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    background-color: var(--color-bg);
-    transform: translateX(100%);
-    transition: transform var(--transition);
+    gap: 24px;
   }
 
-  .nav__links.is-open {
-    transform: translateX(0);
+  .home__rail {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-basis: auto;
   }
 
-  .nav__toggle.is-active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+  .home__preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1004 / 680;
   }
 
-  .nav__toggle.is-active span:nth-child(2) {
-    opacity: 0;
+  .nva-back {
+    left: 20px;
+    top: 16px;
   }
 
-  .nav__toggle.is-active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+  .nva-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 64px 20px 48px;
+    row-gap: 16px;
+    column-gap: 16px;
+  }
+
+  .nva-title,
+  .nva-frame {
+    grid-column: 1 / -1;
+  }
+
+  .nva-title {
+    width: auto;
+    font-size: 24px;
+    margin-bottom: 16px;
+    white-space: normal;
+  }
+
+  .nva-frame {
+    height: auto;
+    aspect-ratio: 952.67 / 477;
+    margin-bottom: 16px;
+  }
+
+  .nva-tile,
+  .nva-tile--nva,
+  .nva-tile--huggies,
+  .nva-tile--ethos,
+  .nva-tile--sjsu {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

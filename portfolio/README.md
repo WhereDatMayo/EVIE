@@ -1,40 +1,21 @@
-# Portfolio Framework
+# Nancy Ma Portfolio
 
-A minimal, static portfolio website scaffold. No build step required.
+Static site matching the Figma file [Portfolio 2027](https://www.figma.com/design/FsOd8ieM1q9oAxc5MaN8lH/Portoflio-2027).
 
-## Structure
+| Page | Figma frame |
+| --- | --- |
+| `index.html` | Desktop - 2 — home |
+| `work/nva.html` | Desktop - 1 — NVA case study |
+| `work/huggies.html`, `salesforce.html`, `kimberly-clark.html` | Same home chrome; preview still a gray block |
 
-```
-portfolio/
-├── index.html      # Page structure and placeholder content
-├── css/
-│   └── styles.css  # Layout, theme, and responsive styles
-├── js/
-│   └── main.js     # Mobile nav toggle and footer year
-└── README.md
-```
-
-## Sections
-
-- **Hero** — Name, tagline, and call-to-action buttons
-- **About** — Short bio
-- **Skills** — Grid of skill tags
-- **Projects** — Card grid with demo and source links
-- **Contact** — Email and social links
-
-## Getting Started
-
-Open `index.html` in a browser, or serve locally:
+## Preview
 
 ```bash
 cd portfolio
 python3 -m http.server 8000
 ```
 
-Then visit [http://localhost:8000](http://localhost:8000).
+## Edit
 
-## Customize
-
-1. Replace placeholder text in `index.html` (name, bio, projects, links).
-2. Adjust colors and spacing in `css/styles.css` via the `:root` variables.
-3. Add project images by setting `background-image` on `.project-card__image` or swapping in `<img>` tags.
+- Type and color live in `css/styles.css` (`:root`).
+- NVA screenshots and brand tiles are in `images/`.
