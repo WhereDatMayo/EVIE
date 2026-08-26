@@ -1,22 +1,15 @@
-/* ==========================================================================
-   UX portfolio skeleton — low-fidelity wireframe styles
-   Edit the :root tokens below to restyle the whole site later.
-   ========================================================================== */
+/* Portfolio 2027 — adapted from Figma Desktop - 1 / Desktop - 2 */
 
 :root {
-  --ink: #1a1a1a;
-  --paper: #f4f2ec;
-  --paper-alt: #ebe8e0;
-  --line: #1a1a1a;
-  --mute: #5c5c5c;
-  --block: #d9d5cb;
-  --block-label: #7a776e;
-  --focus: #1a1a1a;
-  --max: 960px;
-  --pad: 1.25rem;
-  --header-h: 3.5rem;
-  --font: "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ink: #0d0000;
+  --paper: #ffffff;
+  --preview: #d9d9d9;
+  --nva-green: #62b12d;
+  --ethos-blue: #2a44c5;
+  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Kosugi Maru", "Hiragino Maru Gothic ProN", "Segoe UI", sans-serif;
+  --home-inset: 67px;
+  --page-max: 1440px;
 }
 
 *,
@@ -31,21 +24,17 @@ html {
   scroll-behavior: smooth;
 }
 
-[id] {
-  scroll-margin-top: calc(var(--header-h) + 0.75rem);
-}
-
 body {
   font-family: var(--font);
   background: var(--paper);
   color: var(--ink);
-  line-height: 1.55;
   min-height: 100vh;
+  line-height: 1.21;
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 a {
@@ -54,13 +43,13 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--focus);
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 
 .skip-link {
   position: absolute;
-  left: var(--pad);
+  left: 1rem;
   top: -100px;
   background: var(--ink);
   color: var(--paper);
@@ -72,566 +61,305 @@ button:focus-visible {
   top: 0.5rem;
 }
 
-.wrap {
-  width: min(100% - 2 * var(--pad), var(--max));
+/* --------------------------------------------------------------------------
+   Home — Figma Desktop - 2 (30:15)
+   -------------------------------------------------------------------------- */
+
+.home {
+  width: min(100%, var(--page-max));
   margin-inline: auto;
+  padding: 21px var(--home-inset) 80px;
 }
 
-/* --------------------------------------------------------------------------
-   Header
-   -------------------------------------------------------------------------- */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: var(--header-h);
-  background: var(--paper);
-  border-bottom: 2px solid var(--line);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  width: min(100% - 2 * var(--pad), var(--max));
-  margin-inline: auto;
-  gap: 1rem;
-}
-
-.nav__mark {
+.home__title {
   font-weight: 700;
-  letter-spacing: 0.02em;
-  text-decoration: none;
-}
-
-.nav__links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.nav__links a {
-  text-decoration: none;
-  font-size: 0.9375rem;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 0.1rem;
-}
-
-.nav__links a:hover,
-.nav__links a[aria-current="page"] {
-  border-bottom-color: var(--ink);
-}
-
-.nav__toggle {
-  display: none;
-  background: none;
-  border: 2px solid var(--line);
-  width: 2.25rem;
-  height: 2.25rem;
-  cursor: pointer;
-  position: relative;
-}
-
-.nav__toggle span {
-  display: block;
-  width: 14px;
-  height: 2px;
-  background: var(--ink);
-  margin: 3px auto;
-}
-
-/* --------------------------------------------------------------------------
-   Hero
-   -------------------------------------------------------------------------- */
-
-.hero {
-  padding-block: 4rem 3rem;
-  border-bottom: 2px solid var(--line);
-}
-
-.kicker {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--mute);
-  margin-bottom: 0.75rem;
-}
-
-.hero h1 {
-  font-size: clamp(2rem, 6vw, 3.25rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
-}
-
-.hero__role {
-  font-size: 1.125rem;
-  margin-bottom: 1rem;
-}
-
-.hero__blurb {
-  max-width: 48ch;
-  color: var(--mute);
-  margin-bottom: 1.75rem;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.6rem 1rem;
-  border: 2px solid var(--line);
-  text-decoration: none;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  background: transparent;
-}
-
-.btn:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.btn--solid {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.btn--solid:hover {
-  background: transparent;
-  color: var(--ink);
-}
-
-/* --------------------------------------------------------------------------
-   Sections
-   -------------------------------------------------------------------------- */
-
-.section {
-  padding-block: 3.5rem;
-}
-
-.section + .section {
-  border-top: 2px solid var(--line);
-}
-
-.section__head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.75rem;
-}
-
-.section__head h2,
-.page-title {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(2.5rem, 8.2vw, 100px);
+  line-height: 1.21;
   letter-spacing: -0.02em;
+  margin-bottom: 0;
 }
 
-.section__note {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--mute);
-}
-
-/* --------------------------------------------------------------------------
-   Work cards
-   -------------------------------------------------------------------------- */
-
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.25rem;
-}
-
-.card {
+.home__body {
   display: flex;
-  flex-direction: column;
-  border: 2px solid var(--line);
-  text-decoration: none;
-  background: var(--paper);
-  min-height: 100%;
-}
-
-.card:hover .card__title {
-  text-decoration: underline;
-}
-
-.card__body {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  flex: 1;
-}
-
-.card__meta {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--mute);
-}
-
-.card__title {
-  font-size: 1.125rem;
-}
-
-.card__desc {
-  color: var(--mute);
-  font-size: 0.9375rem;
-}
-
-/* --------------------------------------------------------------------------
-   Image / skeleton blocks (the low-fi “boxes”)
-   -------------------------------------------------------------------------- */
-
-.box {
-  position: relative;
-  background: var(--block);
-  border-bottom: 2px solid var(--line);
-  overflow: hidden;
-}
-
-.box--hero {
-  aspect-ratio: 16 / 9;
-}
-
-.box--square {
-  aspect-ratio: 1 / 1;
-}
-
-.box--portrait {
-  aspect-ratio: 3 / 4;
-}
-
-.box--wide {
-  aspect-ratio: 16 / 7;
-}
-
-.box--screen {
-  aspect-ratio: 4 / 3;
-  border: 2px solid var(--line);
-}
-
-/* Classic wireframe X */
-.box::before,
-.box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top right,
-    transparent calc(50% - 1px),
-    var(--line) calc(50% - 1px),
-    var(--line) calc(50% + 1px),
-    transparent calc(50% + 1px)
-  );
-  opacity: 0.35;
-  pointer-events: none;
-}
-
-.box::after {
-  background: linear-gradient(
-    to top left,
-    transparent calc(50% - 1px),
-    var(--line) calc(50% - 1px),
-    var(--line) calc(50% + 1px),
-    transparent calc(50% + 1px)
-  );
-}
-
-.box__label {
-  position: absolute;
-  z-index: 1;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--block-label);
-  background: var(--block);
-  padding: 0.2rem 0.45rem;
-  border: 1px solid var(--block-label);
-}
-
-/* When you add a real image, drop the X by adding .box--photo */
-.box--photo::before,
-.box--photo::after,
-.box--photo .box__label {
-  display: none;
-}
-
-.box--photo {
-  background: transparent;
-}
-
-.box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* --------------------------------------------------------------------------
-   About / contact
-   -------------------------------------------------------------------------- */
-
-.split {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.prose {
-  max-width: 60ch;
-}
-
-.prose p + p {
-  margin-top: 1rem;
-}
-
-.prose h3 {
-  margin: 2rem 0 0.75rem;
-  font-size: 1.05rem;
-}
-
-.muted {
-  color: var(--mute);
-}
-
-.list {
-  list-style: none;
-}
-
-.list li {
-  padding-block: 0.85rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.list li:first-child {
-  border-top: 1px solid var(--line);
-}
-
-.list strong {
-  display: block;
-}
-
-.chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.chip {
-  border: 2px solid var(--line);
-  padding: 0.3rem 0.6rem;
-  font-size: 0.8125rem;
-  font-family: var(--font-mono);
-}
-
-.contact-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-
-.contact-row a {
-  font-weight: 600;
-}
-
-/* --------------------------------------------------------------------------
-   Case study
-   -------------------------------------------------------------------------- */
-
-.cs-hero {
-  padding-block: 2.5rem 0;
-}
-
-.cs-hero h1 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  letter-spacing: -0.03em;
-  margin: 0.35rem 0 0.75rem;
-}
-
-.cs-hero__lede {
-  max-width: 56ch;
-  color: var(--mute);
-  margin-bottom: 1.5rem;
-}
-
-.meta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  padding-block: 1.25rem;
-  border-top: 2px solid var(--line);
-  border-bottom: 2px solid var(--line);
-  margin-top: 1.5rem;
-}
-
-.meta-grid dt {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--mute);
-  margin-bottom: 0.2rem;
-}
-
-.meta-grid dd {
-  font-size: 0.9375rem;
-}
-
-.cs-cover {
+  align-items: flex-start;
+  gap: 58px;
   margin-top: 0;
 }
 
-.figure-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+.home__rail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 0 0 238px;
+  width: 238px;
 }
 
-.caption {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--mute);
-  margin-top: 0.5rem;
+.stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 75px;
+  padding: 12px 8px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--ink);
 }
 
-.insight {
-  display: grid;
-  grid-template-columns: 2.5rem 1fr;
-  gap: 0.75rem;
-  padding-block: 1rem;
-  border-bottom: 1px solid var(--line);
+.stamp__dow {
+  font-weight: 700;
+  width: 100%;
 }
 
-.insight:first-of-type {
-  border-top: 1px solid var(--line);
+.stamp__num {
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
 }
 
-.insight__n {
-  font-family: var(--font-mono);
+.studies {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 238px;
+  min-height: 185px;
+  padding: 12px 24px;
+  border: 1px solid #000;
+  background: #fff;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--ink);
+}
+
+.studies__label {
   font-weight: 700;
 }
 
-.callout {
-  border: 2px solid var(--line);
-  padding: 1.25rem;
-  background: var(--paper-alt);
-  margin: 1.25rem 0;
+.studies a {
+  font-weight: 400;
+  text-decoration: none;
 }
 
-.callout p {
-  max-width: 60ch;
+.studies a:hover,
+.studies a[aria-current="page"] {
+  text-decoration: underline;
 }
 
-.stat-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
+.home__preview {
+  flex: 1 1 auto;
+  width: min(100%, 1004px);
+  height: 680px;
+  background: var(--preview);
+  overflow: hidden;
 }
 
-.stat {
-  border: 2px solid var(--line);
-  padding: 1rem;
+.home__preview a,
+.home__preview img {
+  width: 100%;
+  height: 100%;
 }
 
-.stat strong {
-  display: block;
-  font-size: 1.5rem;
-  letter-spacing: -0.03em;
+.home__preview img {
+  object-fit: cover;
+  object-position: top center;
 }
 
-.cs-nav {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.cs-nav a {
-  font-weight: 600;
+.home__preview-empty {
+  width: 100%;
+  height: 100%;
+  background: var(--preview);
 }
 
 /* --------------------------------------------------------------------------
-   Footer
+   NVA case study — Figma Desktop - 1 (24:5)
+   6 equal columns, 22px gap. Side columns are the page margins.
    -------------------------------------------------------------------------- */
 
-.site-footer {
-  border-top: 2px solid var(--line);
-  padding-block: 1.5rem;
-  font-size: 0.8125rem;
-  color: var(--mute);
+.nva-page {
+  position: relative;
+  width: min(100%, var(--page-max));
+  margin-inline: auto;
+  min-height: 100vh;
 }
 
-.site-footer .wrap {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+.nva-back {
+  position: absolute;
+  left: var(--home-inset);
+  top: 21px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.nva-back:hover {
+  text-decoration: underline;
+}
+
+.nva-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 22px;
+  row-gap: 22px;
+  padding: 154px 0 133px;
+  align-items: start;
+}
+
+.nva-title {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: normal;
+  width: min(100%, 362px);
+  color: #000;
+}
+
+.nva-frame {
+  grid-column: 2 / span 4;
+  grid-row: 2;
+  width: 100%;
+  height: 477px;
+  border: 10px solid var(--nva-green);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--preview);
+}
+
+.nva-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.nva-tile {
+  grid-row: 3;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: var(--preview);
+}
+
+.nva-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.nva-tile--nva {
+  grid-column: 2;
+  border: 9px solid var(--nva-green);
+}
+
+.nva-tile--huggies {
+  grid-column: 3;
+}
+
+.nva-tile--ethos {
+  grid-column: 4;
+  border: 3px solid var(--ethos-blue);
+}
+
+.nva-tile--sjsu {
+  grid-column: 5;
+}
+
+/* --------------------------------------------------------------------------
+   About (same type system; not in the Figma frames)
+   -------------------------------------------------------------------------- */
+
+.about {
+  width: min(100% - 2 * var(--home-inset), 720px);
+  margin: 21px auto 80px;
+}
+
+.about h1 {
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 48px);
+  margin: 1.5rem 0 1rem;
+}
+
+.about p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.about a {
+  font-weight: 700;
 }
 
 /* --------------------------------------------------------------------------
    Mobile
    -------------------------------------------------------------------------- */
 
-@media (max-width: 700px) {
-  .split {
-    grid-template-columns: 1fr;
+@media (max-width: 900px) {
+  .home {
+    padding: 24px 20px 48px;
   }
 
-  .box--portrait {
-    max-width: 220px;
-  }
-
-  .nav__toggle {
-    display: block;
-  }
-
-  .nav__links {
-    position: fixed;
-    inset: var(--header-h) 0 0 0;
+  .home__body {
     flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    background: var(--paper);
-    border-top: 2px solid var(--line);
-    transform: translateX(100%);
-    transition: transform 160ms ease;
-    padding: 0.5rem 0;
+    gap: 24px;
   }
 
-  .nav__links.is-open {
-    transform: translateX(0);
+  .home__rail {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-basis: auto;
   }
 
-  .nav__links a {
-    display: block;
-    padding: 1rem var(--pad);
-    border-bottom: 1px solid var(--line);
+  .home__preview {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1004 / 680;
+  }
+
+  .nva-back {
+    left: 20px;
+    top: 16px;
+  }
+
+  .nva-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 64px 20px 48px;
+    row-gap: 16px;
+    column-gap: 16px;
+  }
+
+  .nva-title,
+  .nva-frame {
+    grid-column: 1 / -1;
+  }
+
+  .nva-title {
+    width: auto;
+    font-size: 24px;
+  }
+
+  .nva-frame {
+    height: auto;
+    aspect-ratio: 952.67 / 477;
+  }
+
+  .nva-tile,
+  .nva-tile--nva,
+  .nva-tile--huggies,
+  .nva-tile--ethos,
+  .nva-tile--sjsu {
+    grid-column: auto;
+    grid-row: auto;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .nav__links {
-    transition: none;
   }
 }

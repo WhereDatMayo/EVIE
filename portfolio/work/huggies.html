@@ -3,47 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nancy Ma Portfolio</title>
-  <meta name="description" content="Nancy Ma — UX portfolio. Case studies including NVA, Huggies, Salesforce, and Kimberly-Clark.">
+  <title>Huggies — Nancy Ma Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Kosugi+Maru&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
   <main id="main" class="home">
     <h1 class="home__title">NANCY MA PORTFOLIO</h1>
-
     <div class="home__body">
       <div class="home__rail">
         <div class="stamp" aria-label="Today’s date">
           <span class="stamp__dow" id="date-dow">Wed</span>
           <span class="stamp__num" id="date-num">25</span>
         </div>
-
         <nav class="studies" aria-label="Case studies">
           <p class="studies__label">Case Studies</p>
-          <a href="work/nva.html">→ NVA</a>
-          <a href="work/huggies.html">→ Huggies</a>
-          <a href="work/salesforce.html">→ Salesforce</a>
-          <a href="work/kimberly-clark.html">→ Kimberly-Clark</a>
+          <a href="nva.html">→ NVA</a>
+          <a href="huggies.html" aria-current="page">→ Huggies</a>
+          <a href="salesforce.html">→ Salesforce</a>
+          <a href="kimberly-clark.html">→ Kimberly-Clark</a>
         </nav>
       </div>
-
-      <div class="home__preview">
-        <a href="work/nva.html">
-          <img
-            src="images/nva-homepage.png"
-            width="2646"
-            height="1400"
-            alt="NVA homepage — featured case study">
-        </a>
+      <div class="home__preview" aria-label="Huggies case study coming soon">
+        <div class="home__preview-empty"></div>
       </div>
     </div>
   </main>
-
-  <script src="js/main.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>
