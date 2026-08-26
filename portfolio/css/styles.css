@@ -31,6 +31,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[id] {
+  scroll-margin-top: calc(var(--header-h) + 0.75rem);
+}
+
 body {
   font-family: var(--font);
   background: var(--paper);
