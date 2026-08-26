@@ -1,40 +1,46 @@
-# Portfolio Framework
+# UX portfolio skeleton
 
-A minimal, static portfolio website scaffold. No build step required.
+Low-fidelity wireframe site you can fill in. No build step, no frameworks.
 
-## Structure
+Gray boxes with an X are image placeholders. Copy marked `[like this]` or “EDIT” in HTML comments is meant to be replaced.
 
-```
-portfolio/
-├── index.html      # Page structure and placeholder content
-├── css/
-│   └── styles.css  # Layout, theme, and responsive styles
-├── js/
-│   └── main.js     # Mobile nav toggle and footer year
-└── README.md
-```
+## Pages
 
-## Sections
+| File | What it is |
+| --- | --- |
+| `index.html` | Home: name, role, 3 work cards |
+| `about.html` | Bio, experience outline, methods, contact |
+| `work/project-one.html` | Full case study (problem → research → insights → design → outcome) |
+| `work/project-two.html` | Second full case study |
+| `work/project-three.html` | Shorter sprint / side-project template |
+| `css/styles.css` | Wireframe styles. Change `:root` tokens to restyle later |
+| `js/main.js` | Mobile menu + footer year |
 
-- **Hero** — Name, tagline, and call-to-action buttons
-- **About** — Short bio
-- **Skills** — Grid of skill tags
-- **Projects** — Card grid with demo and source links
-- **Contact** — Email and social links
-
-## Getting Started
-
-Open `index.html` in a browser, or serve locally:
+## Preview
 
 ```bash
 cd portfolio
 python3 -m http.server 8000
 ```
 
-Then visit [http://localhost:8000](http://localhost:8000).
+Open [http://localhost:8000](http://localhost:8000).
 
-## Customize
+## How to edit
 
-1. Replace placeholder text in `index.html` (name, bio, projects, links).
-2. Adjust colors and spacing in `css/styles.css` via the `:root` variables.
-3. Add project images by setting `background-image` on `.project-card__image` or swapping in `<img>` tags.
+1. **Name and links** — search for `Your Name`, `you@example.com`, and the LinkedIn URL.
+2. **Home cards** — titles and one-liners in `index.html`. Keep them scannable.
+3. **Case studies** — write over the prompt text. Leave a section out if it does not apply; do not fake research.
+4. **Images** — put files in `portfolio/images/` then replace a placeholder:
+
+```html
+<div class="box box--hero box--photo">
+  <img src="images/project-one-cover.jpg" alt="Describe the image">
+</div>
+```
+
+`box--photo` turns off the wireframe X.
+
+5. **Add a fourth project** — duplicate `work/project-one.html`, then copy a card block on `index.html`.
+6. **Visual polish later** — start with `:root` in `css/styles.css` (`--ink`, `--paper`, `--line`).
+
+The skeleton is supposed to look unfinished. Fill the stories first, then style.

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Your Name</title>
+  <meta name="description" content="About Your Name, UX designer.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="nav__mark" href="index.html">Your Name</a>
+      <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links">
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="wrap split">
+        <div>
+          <!-- EDIT: replace this box with <img src="your-photo.jpg" alt="Your Name"> and add class box--photo to the parent -->
+          <div class="box box--portrait" role="img" aria-label="Placeholder portrait">
+            <span class="box__label">Portrait</span>
+          </div>
+          <p class="caption">Add a photo here</p>
+        </div>
+
+        <div class="prose">
+          <p class="kicker">About</p>
+          <h1 class="page-title">Hello, I’m [Your Name]</h1>
+          <p>
+            Two or three sentences about you. Mention the kind of work you do
+            (product, research, visual, service), who you like designing for,
+            and one thing that is not on your resume.
+          </p>
+          <p class="muted">
+            Example: I am a UX designer focused on making complex systems
+            feel obvious. I care about research you can act on, not decks
+            that sit in a folder.
+          </p>
+
+          <h3>Currently</h3>
+          <ul class="list">
+            <li>
+              <strong>[School or company]</strong>
+              <span class="muted">Role or program · City · Year–present</span>
+            </li>
+            <li>
+              <strong>Looking for</strong>
+              <span class="muted">Internship / new-grad / freelance — UX, product, or research</span>
+            </li>
+          </ul>
+
+          <h3>Experience (outline)</h3>
+          <ul class="list">
+            <li>
+              <strong>Role — Organization</strong>
+              <span class="muted">Dates · One line about what you owned</span>
+            </li>
+            <li>
+              <strong>Role — Organization</strong>
+              <span class="muted">Dates · One line about what you owned</span>
+            </li>
+            <li>
+              <strong>Role — Organization</strong>
+              <span class="muted">Dates · One line about what you owned</span>
+            </li>
+          </ul>
+
+          <h3>Methods I use</h3>
+          <div class="chip-row" aria-label="UX methods">
+            <span class="chip">Interviews</span>
+            <span class="chip">Usability tests</span>
+            <span class="chip">Journey maps</span>
+            <span class="chip">Wireframes</span>
+            <span class="chip">Prototypes</span>
+            <span class="chip">Surveys</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="wrap">
+        <h2>Contact</h2>
+        <p class="muted" style="margin-top: 0.75rem; max-width: 50ch;">
+          Replace the links. Keep this short — recruiters scan, they do not hunt.
+        </p>
+        <div class="contact-row">
+          <a href="mailto:you@example.com">you@example.com</a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="#" aria-label="Resume PDF placeholder">Resume.pdf</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Your Name</p>
+      <p><a href="index.html">Back to work</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

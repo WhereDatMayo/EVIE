@@ -3,125 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal portfolio">
-  <title>Your Name | Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- EDIT: page title + description -->
+  <title>Your Name — UX Portfolio</title>
+  <meta name="description" content="UX design portfolio. Replace this description with a one-line summary of who you are.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#" class="nav__logo">Your Name</a>
-      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+    <nav class="nav" aria-label="Primary">
+      <!-- EDIT: short name or initials in the header -->
+      <a class="nav__mark" href="index.html">Your Name</a>
+      <button class="nav__toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
       </button>
       <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="index.html#work">Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="hero" class="hero">
-      <div class="container">
-        <p class="hero__greeting">Hello, I'm</p>
-        <h1 class="hero__title">Nancy Ma</h1>
-        <p class="hero__subtitle">Im a fat chud</p>
-        <div class="hero__actions">
-          <a href="#projects" class="btn btn--primary">View Projects</a>
-          <a href="#contact" class="btn btn--secondary">Get in Touch</a>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker">Portfolio skeleton — replace this copy</p>
+        <!-- EDIT: your name -->
+        <h1>Your Name</h1>
+        <!-- EDIT: role, e.g. Product Designer, UX Researcher -->
+        <p class="hero__role">UX Designer</p>
+        <!-- EDIT: 1–2 sentence positioning statement -->
+        <p class="hero__blurb">
+          Short line about the kind of problems you like to solve.
+          Example: I design clear, useful products for people who are busy,
+          stressed, or new to a system.
+        </p>
+        <div class="actions">
+          <a class="btn btn--solid" href="#work">Selected work</a>
+          <a class="btn" href="about.html">About me</a>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section__title">About</h2>
-        <div class="about__content">
-          <p>
-            Brief introduction about yourself. Replace this with a short bio
-            covering your background, interests, and what you're currently working on.
-          </p>
+    <section id="work" class="section">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Selected work</h2>
+          <p class="section__note">3 cards · duplicate a case study file to add more</p>
         </div>
-      </div>
-    </section>
 
-    <section id="skills" class="section section--alt">
-      <div class="container">
-        <h2 class="section__title">Skills</h2>
-        <ul class="skills__grid">
-          <li class="skill-card">Skill One</li>
-          <li class="skill-card">Skill Two</li>
-          <li class="skill-card">Skill Three</li>
-          <li class="skill-card">Skill Four</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="projects" class="section">
-      <div class="container">
-        <h2 class="section__title">Projects</h2>
-        <div class="projects__grid">
-          <article class="project-card">
-            <div class="project-card__image"></div>
-            <div class="project-card__body">
-              <h3>Project Title</h3>
-              <p>Short project description goes here.</p>
-              <div class="project-card__links">
-                <a href="#">Live Demo</a>
-                <a href="#">Source Code</a>
-              </div>
+        <!--
+          HOW TO ADD A PROJECT
+          1. Duplicate work/project-one.html
+          2. Copy one of the <a class="card"> blocks below
+          3. Point href at the new file and swap the labels
+        -->
+        <div class="work-grid">
+          <a class="card" href="work/project-one.html">
+            <div class="box box--hero" role="img" aria-label="Placeholder cover for Project One">
+              <span class="box__label">Cover image</span>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__image"></div>
-            <div class="project-card__body">
-              <h3>Project Title</h3>
-              <p>Short project description goes here.</p>
-              <div class="project-card__links">
-                <a href="#">Live Demo</a>
-                <a href="#">Source Code</a>
-              </div>
+            <div class="card__body">
+              <p class="card__meta">Case study · 00 weeks</p>
+              <h3 class="card__title">Project One</h3>
+              <p class="card__desc">One sentence: who it was for and what you changed.</p>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card__image"></div>
-            <div class="project-card__body">
-              <h3>Project Title</h3>
-              <p>Short project description goes here.</p>
-              <div class="project-card__links">
-                <a href="#">Live Demo</a>
-                <a href="#">Source Code</a>
-              </div>
+          </a>
+
+          <a class="card" href="work/project-two.html">
+            <div class="box box--hero" role="img" aria-label="Placeholder cover for Project Two">
+              <span class="box__label">Cover image</span>
             </div>
-          </article>
+            <div class="card__body">
+              <p class="card__meta">Case study · 00 weeks</p>
+              <h3 class="card__title">Project Two</h3>
+              <p class="card__desc">One sentence: the problem and the outcome.</p>
+            </div>
+          </a>
+
+          <a class="card" href="work/project-three.html">
+            <div class="box box--hero" role="img" aria-label="Placeholder cover for Project Three">
+              <span class="box__label">Cover image</span>
+            </div>
+            <div class="card__body">
+              <p class="card__meta">Case study · 00 weeks</p>
+              <h3 class="card__title">Project Three</h3>
+              <p class="card__desc">One sentence: keep this scannable for recruiters.</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section section--alt">
-      <div class="container">
-        <h2 class="section__title">Contact</h2>
-        <p class="contact__intro">Open to opportunities and collaborations. Reach out anytime.</p>
-        <div class="contact__links">
-          <a href="mailto:you@example.com" class="contact__link">you@example.com</a>
-          <a href="https://github.com/yourusername" class="contact__link" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com/in/yourusername" class="contact__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <section class="section" id="contact-teaser">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Currently</h2>
         </div>
+        <p class="muted" style="max-width: 52ch;">
+          <!-- EDIT: school, job, or what you are looking for -->
+          Open to internships / new-grad roles / freelance. Based in [City].
+          Say hello at
+          <a href="mailto:you@example.com"><strong>you@example.com</strong></a>.
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Your Name. All rights reserved.</p>
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Your Name</p>
+      <p>Low-fidelity skeleton — swap copy, then style.</p>
     </div>
   </footer>
 
