@@ -241,6 +241,13 @@ body {
   line-height: 1.15;
 }
 
+.bubble.is-roomy {
+  width: 6.7cqw;
+  height: 6.7cqw;
+  font-size: 0.66cqw;
+  line-height: 1.2;
+}
+
 /* --- Geometric placeholder portraits --- */
 
 .photo {
@@ -530,11 +537,5 @@ body {
 @media (max-width: 720px) {
   body {
     overflow: auto;
-    place-items: start center;
-  }
-
-  .slide {
-    --w: 100vw;
-    margin: 0 auto;
   }
 }
