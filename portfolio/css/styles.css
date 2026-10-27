@@ -1,5 +1,3 @@
-/* Portfolio 2027 — adapted from Figma Desktop - 1 / Desktop - 2 */
-
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -8,24 +6,14 @@
   src: url("../fonts/inter-latin.woff2") format("woff2");
 }
 
-@font-face {
-  font-family: "Kosugi Maru";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/kosugi-maru-latin.woff2") format("woff2");
-}
-
 :root {
-  --ink: #0d0000;
-  --paper: #ffffff;
-  --preview: #d9d9d9;
-  --nva-green: #62b12d;
-  --ethos-blue: #2a44c5;
+  --bg: #f7f6f3;
+  --ink: #171717;
+  --muted: #6b6b6b;
+  --line: #e4e2dc;
   --font: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-display: "Kosugi Maru", "Hiragino Maru Gothic ProN", "Segoe UI", sans-serif;
-  --home-inset: 67px;
-  --page-max: 1440px;
+  --page: 42rem;
+  --wide: 56rem;
 }
 
 *,
@@ -41,24 +29,27 @@ html {
 }
 
 body {
-  font-family: var(--font);
-  background: var(--paper);
-  color: var(--ink);
   min-height: 100vh;
-  line-height: 1.21;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
   color: inherit;
 }
 
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
   outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
@@ -66,330 +57,291 @@ button:focus-visible {
 .skip-link {
   position: absolute;
   left: 1rem;
-  top: -100px;
-  background: var(--ink);
-  color: var(--paper);
+  top: -3rem;
+  z-index: 10;
   padding: 0.5rem 0.75rem;
-  z-index: 200;
+  background: var(--ink);
+  color: var(--bg);
 }
 
 .skip-link:focus {
-  top: 0.5rem;
+  top: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   Home — Figma Desktop - 2 (30:15)
-   -------------------------------------------------------------------------- */
-
-.home {
-  width: min(100%, var(--page-max));
+.site-header,
+.site-footer,
+.hero,
+.work,
+.page {
+  width: min(var(--wide), calc(100% - 2.5rem));
   margin-inline: auto;
-  padding: 21px var(--home-inset) 80px;
 }
 
-.home__title {
-  font-weight: 700;
-  font-size: clamp(2.5rem, 8.2vw, 100px);
-  line-height: 1.21;
+.site-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.75rem 0 1.5rem;
+}
+
+.wordmark {
+  font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: 0;
-}
-
-.home__body {
-  display: flex;
-  align-items: flex-start;
-  gap: 58px;
-  margin-top: 0;
-}
-
-.home__rail {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 0 0 238px;
-  width: 238px;
-}
-
-.stamp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  width: 75px;
-  padding: 12px 8px;
-  border: 1px solid #000;
-  background: #fff;
-  font-size: 12px;
-  line-height: normal;
-  color: var(--ink);
-}
-
-.stamp__dow,
-.stamp__num {
-  font-size: 12px;
-  line-height: normal;
-}
-
-.stamp__dow {
-  font-weight: 700;
-  width: 100%;
-}
-
-.stamp__num {
-  font-weight: 400;
-  text-align: center;
-  width: 100%;
-}
-
-.studies {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 238px;
-  min-height: 185px;
-  padding: 12px 24px;
-  border: 1px solid #000;
-  background: #fff;
-  font-size: 12px;
-  line-height: normal;
-  color: var(--ink);
-}
-
-.studies__label {
-  font-weight: 700;
-}
-
-.studies a {
-  font-weight: 400;
   text-decoration: none;
 }
 
-.studies a:hover,
-.studies a[aria-current="page"] {
-  text-decoration: underline;
+.site-nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9375rem;
 }
 
-.home__preview {
-  flex: 1 1 auto;
-  width: min(100%, 1004px);
-  height: 680px;
-  background: var(--preview);
-  overflow: hidden;
-}
-
-.home__preview a,
-.home__preview img {
-  width: 100%;
-  height: 100%;
-}
-
-.home__preview img {
-  object-fit: contain;
-  object-position: top center;
-  background: var(--preview);
-}
-
-.home__preview-empty {
-  width: 100%;
-  height: 100%;
-  background: var(--preview);
-}
-
-/* --------------------------------------------------------------------------
-   NVA case study — Figma Desktop - 1 (24:5)
-   6 equal columns, 22px gap. Side columns are the page margins.
-   -------------------------------------------------------------------------- */
-
-.nva-page {
-  position: relative;
-  width: min(100%, var(--page-max));
-  margin-inline: auto;
-  min-height: 100vh;
-}
-
-.nva-back {
-  position: absolute;
-  left: var(--home-inset);
-  top: 21px;
-  font-size: 12px;
-  font-weight: 700;
+.site-nav a {
   text-decoration: none;
-  z-index: 1;
+  color: var(--muted);
 }
 
-.nva-back:hover {
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.site-nav a[aria-current="page"] {
   text-decoration: underline;
+  text-underline-offset: 0.28em;
 }
 
-.nva-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  column-gap: 22px;
-  row-gap: 0;
-  padding: 154px 0 133px;
-  align-items: start;
+.hero {
+  padding: 4.5rem 0 3.5rem;
 }
 
-.nva-title {
-  grid-column: 2;
-  grid-row: 1;
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 400;
-  font-synthesis: none;
-  line-height: normal;
-  width: min(100%, 362px);
-  color: #000;
-  margin-bottom: 63px;
-  white-space: nowrap;
+.eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.nva-frame {
-  grid-column: 2 / span 4;
-  grid-row: 2;
-  width: 100%;
-  height: 477px;
-  border: 10px solid var(--nva-green);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--preview);
-  margin-bottom: 131px;
+h1 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 560;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
 }
 
-.nva-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-}
-
-.nva-tile {
-  grid-row: 3;
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
-  background: var(--preview);
-}
-
-.nva-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.nva-tile--nva {
-  grid-column: 2;
-  border: 9px solid var(--nva-green);
-}
-
-.nva-tile--huggies {
-  grid-column: 3;
-}
-
-.nva-tile--ethos {
-  grid-column: 4;
-  border: 3px solid var(--ethos-blue);
-}
-
-.nva-tile--sjsu {
-  grid-column: 5;
-}
-
-/* --------------------------------------------------------------------------
-   About (same type system; not in the Figma frames)
-   -------------------------------------------------------------------------- */
-
-.about {
-  width: min(100% - 2 * var(--home-inset), 720px);
-  margin: 21px auto 80px;
-}
-
-.about h1 {
-  font-weight: 700;
-  font-size: clamp(2rem, 6vw, 48px);
-  margin: 1.5rem 0 1rem;
-}
-
-.about p {
-  font-size: 16px;
+.lede {
+  max-width: 34rem;
+  margin-top: 1.1rem;
+  color: var(--muted);
+  font-size: 1.125rem;
   line-height: 1.5;
-  margin-bottom: 1rem;
 }
 
-.about a {
-  font-weight: 700;
+.work {
+  padding-bottom: 4rem;
 }
 
-/* --------------------------------------------------------------------------
-   Mobile
-   -------------------------------------------------------------------------- */
+.work h2 {
+  margin-bottom: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 
-@media (max-width: 900px) {
-  .home {
-    padding: 24px 20px 48px;
+.work-list {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.work-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem 1.5rem;
+  padding: 1.4rem 0.15rem;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.work-item__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+}
+
+.work-item h3 {
+  font-size: 1.25rem;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+}
+
+.work-item__type {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.work-item__lede {
+  grid-column: 1;
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 0.9875rem;
+}
+
+.work-item__go {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--muted);
+  font-size: 1.125rem;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.work-item:hover h3,
+.work-item:focus-visible h3 {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.work-item:hover .work-item__go,
+.work-item:focus-visible .work-item__go {
+  color: var(--ink);
+  transform: translateX(4px);
+}
+
+.page {
+  flex: 1;
+  padding: 2.5rem 0 4rem;
+}
+
+.page p + p,
+.page h2 + p,
+.page h2 + ul {
+  margin-top: 0.85rem;
+}
+
+.page p a {
+  text-underline-offset: 0.18em;
+}
+
+.study h2 {
+  margin-top: 2.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.study ul {
+  padding-left: 1.15rem;
+}
+
+.study li + li {
+  margin-top: 0.4rem;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0.5rem;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.meta dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.meta dd {
+  margin-top: 0.2rem;
+  font-size: 0.9375rem;
+}
+
+.study figure {
+  margin: 1.75rem 0 0;
+}
+
+.study img {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.study figcaption {
+  margin-top: 0.55rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+.study-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9375rem;
+}
+
+.study-nav a {
+  text-underline-offset: 0.18em;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.35rem 0 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.site-footer a {
+  text-underline-offset: 0.16em;
+}
+
+@media (max-width: 640px) {
+  .site-header,
+  .site-footer,
+  .hero,
+  .work,
+  .page {
+    width: min(var(--wide), calc(100% - 2rem));
   }
 
-  .home__body {
+  .hero {
+    padding: 2.75rem 0 2.25rem;
+  }
+
+  .work-item {
+    grid-template-columns: 1fr;
+  }
+
+  .work-item__go {
+    display: none;
+  }
+
+  .site-footer {
     flex-direction: column;
-    gap: 24px;
-  }
-
-  .home__rail {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    flex-basis: auto;
-  }
-
-  .home__preview {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1004 / 680;
-  }
-
-  .nva-back {
-    left: 20px;
-    top: 16px;
-  }
-
-  .nva-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 64px 20px 48px;
-    row-gap: 16px;
-    column-gap: 16px;
-  }
-
-  .nva-title,
-  .nva-frame {
-    grid-column: 1 / -1;
-  }
-
-  .nva-title {
-    width: auto;
-    font-size: 24px;
-    margin-bottom: 16px;
-    white-space: normal;
-  }
-
-  .nva-frame {
-    height: auto;
-    aspect-ratio: 952.67 / 477;
-    margin-bottom: 16px;
-  }
-
-  .nva-tile,
-  .nva-tile--nva,
-  .nva-tile--huggies,
-  .nva-tile--ethos,
-  .nva-tile--sjsu {
-    grid-column: auto;
-    grid-row: auto;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .work-item__go {
+    transition: none;
   }
 }

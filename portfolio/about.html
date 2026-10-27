@@ -9,13 +9,40 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <main id="main" class="about">
-    <p><a href="index.html">← NANCY MA PORTFOLIO</a></p>
-    <h1>About</h1>
-    <p>
-      Nancy Ma is a UX designer. Case studies: NVA, Huggies, Salesforce, and Kimberly-Clark.
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Nancy Ma</a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    <p class="eyebrow">About</p>
+    <h1>Nancy Ma</h1>
+    <p class="lede">
+      UX designer working across product and brand. I care about clear
+      information architecture, honest language, and interfaces that stay
+      out of the way.
     </p>
-    <p><a href="mailto:you@example.com">you@example.com</a></p>
+    <p>
+      Recent case studies include
+      <a href="work/nva.html">NVA</a>,
+      <a href="work/huggies.html">Huggies</a>,
+      <a href="work/salesforce.html">Salesforce</a>, and
+      <a href="work/kimberly-clark.html">Kimberly-Clark</a>.
+    </p>
+    <p>
+      <a href="mailto:nancy.ma@sjsu.edu">nancy.ma@sjsu.edu</a>
+    </p>
   </main>
+
+  <footer class="site-footer">
+    <a href="mailto:nancy.ma@sjsu.edu">nancy.ma@sjsu.edu</a>
+    <p>© <span id="year"></span> Nancy Ma</p>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
