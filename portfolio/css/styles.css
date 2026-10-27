@@ -699,4 +699,16 @@ button:focus-visible {
   html {
     scroll-behavior: auto;
   }
+
+  .book,
+  .book--clay,
+  .book:hover,
+  .book:focus-visible,
+  .book.is-featured,
+  .book--clay:hover,
+  .book--clay:focus-visible,
+  .book--clay.is-featured {
+    transition: none;
+    transform: none;
+  }
 }
