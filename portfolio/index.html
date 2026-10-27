@@ -7,38 +7,83 @@
   <meta name="description" content="Nancy Ma — UX portfolio. Case studies including NVA, Huggies, Salesforce, and Kimberly-Clark.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="shelf-body">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="main" class="home">
-    <h1 class="home__title">NANCY MA PORTFOLIO</h1>
-
-    <div class="home__body">
-      <div class="home__rail">
-        <div class="stamp" aria-label="Today’s date">
-          <span class="stamp__dow" id="date-dow">Wed</span>
-          <span class="stamp__num" id="date-num">25</span>
+  <main id="main" class="shelf">
+    <section class="shelf__intro" aria-live="polite">
+      <p class="shelf__kicker">Nancy Ma</p>
+      <h1 class="shelf__title" id="featured-title">NVA</h1>
+      <p class="shelf__lede" id="featured-lede">A continuum of care for veterinary practices and the people who run them.</p>
+      <dl class="shelf__meta">
+        <div>
+          <dt>Type</dt>
+          <dd id="featured-type">Product · Brand</dd>
         </div>
+        <div>
+          <dt>Open</dt>
+          <dd><a id="featured-link" href="work/nva.html">View project →</a></dd>
+        </div>
+      </dl>
+    </section>
 
-        <nav class="studies" aria-label="Case studies">
-          <p class="studies__label">Case Studies</p>
-          <a href="work/nva.html">--&gt; NVA</a>
-          <a href="work/huggies.html">--&gt; Huggies</a>
-          <a href="work/salesforce.html">--&gt; Salesforce</a>
-          <a href="work/kimberly-clark.html">--&gt; Kimberly-Clark</a>
-        </nav>
-      </div>
+    <div class="shelf__stage" aria-label="Selected work">
+      <a class="book-spine" href="work/kimberly-clark.html" aria-label="Kimberly-Clark case study">
+        <span>Kimberly-Clark</span>
+      </a>
 
-      <div class="home__preview">
-        <a href="work/nva.html">
-          <img
-            src="images/nva-homepage.png"
-            width="2646"
-            height="1400"
-            alt="NVA homepage — featured case study">
-        </a>
-      </div>
+      <a class="book book--cream" href="work/huggies.html" data-title="Huggies" data-lede="A warmer path through diapers, care, and the first thousand days." data-type="UX · Consumer" data-href="work/huggies.html" data-stat1="Care, packaging, and first-time parent journeys" data-stat2="Consumer brand study">
+        <span class="book__pages" aria-hidden="true"></span>
+        <span class="book__cover">
+          <span class="book__name">Huggies</span>
+          <span class="book__blurb">A warmer path through diapers, care, and the first thousand days.</span>
+          <span class="book__icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56">
+              <circle cx="32" cy="32" r="20" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <circle cx="25" cy="28" r="1.6" fill="currentColor"/>
+              <circle cx="39" cy="28" r="1.6" fill="currentColor"/>
+              <path d="M24 38c3 4 13 4 16 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="book__mono">N·M</span>
+        </span>
+      </a>
+
+      <a class="book book--forest is-featured" href="work/nva.html" data-title="NVA" data-lede="A continuum of care for veterinary practices and the people who run them." data-type="Product · Brand" data-href="work/nva.html" data-stat1="Four care verticals on one continuum" data-stat2="Brand system for General Practice, Ethos, Pet Resorts, Equine">
+        <span class="book__pages" aria-hidden="true"></span>
+        <span class="book__cover">
+          <span class="book__name">NVA</span>
+          <span class="book__blurb">A continuum of care for veterinary practices and the people who run them.</span>
+          <span class="book__icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="56" height="56">
+              <path d="M32 16c6 10 12 16 12 24a12 12 0 0 1-24 0c0-8 6-14 12-24z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <ellipse cx="32" cy="44" rx="10" ry="3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </span>
+          <span class="book__mono">N·M</span>
+        </span>
+      </a>
+
+      <a class="book book--clay" href="work/salesforce.html" data-title="Salesforce" data-lede="Practice the hard conversations out loud — with a little help from AI." data-type="UX · Enterprise" data-href="work/salesforce.html" data-stat1="Hard conversations, practiced out loud" data-stat2="Enterprise tools and AI-assisted coaching">
+        <span class="book__pages" aria-hidden="true"></span>
+        <span class="book__cover">
+          <span class="book__name">Salesforce</span>
+          <span class="book__blurb">Practice the hard conversations out loud — with a little help from AI.</span>
+          <span class="book__icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="72" height="36">
+              <path d="M6 20c6 0 6 16 12 16s6-16 12-16 6 16 12 16 6-16 12-16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="book__mono">N·M</span>
+        </span>
+      </a>
     </div>
+
+    <footer class="shelf__foot">
+      <p class="shelf__stat" id="featured-stat-1"><span>01</span> Four care verticals on one continuum</p>
+      <p class="shelf__stat" id="featured-stat-2"><span>02</span> Brand system for General Practice, Ethos, Pet Resorts, Equine</p>
+      <p class="shelf__copy">© <span id="year"></span> N·M</p>
+    </footer>
   </main>
 
   <script src="js/main.js"></script>
