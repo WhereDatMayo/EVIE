@@ -536,10 +536,12 @@ button:focus-visible {
   text-decoration: none;
   color: #7a7468;
   margin-bottom: 2.25rem;
+  transition: color 200ms ease, transform 200ms ease;
 }
 
 .study__back:hover {
   color: #2b2720;
+  transform: translateX(-4px);
 }
 
 .study__kicker {
