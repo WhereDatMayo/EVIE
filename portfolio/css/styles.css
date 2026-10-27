@@ -1,3 +1,32 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/noto-sans-kr-save.ttf") format("truetype");
+}
+
+:root {
+  --canvas: #f6f6f6;
+  --ink: #111111;
+  --muted: #5c5c5c;
+  --meta: #9a9a9a;
+  --line: #dcdcdc;
+  --ring: #c8c8c8;
+  --hub-ring: #c2c2c2;
+  --dot: #c4142e;
+  --pill: #3d3d3d;
+  --font: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
 *,
 *::before,
 *::after {
@@ -8,6 +37,492 @@
 
 html,
 body {
-  min-height: 100%;
-  background: #fff;
+  height: 100%;
+  background: var(--canvas);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  font-family: var(--font);
+  overflow: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 20;
+  padding: 0.5rem 0.75rem;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.slide {
+  --w: min(100vw, calc(100vh * 1920 / 1109));
+  width: var(--w);
+  aspect-ratio: 1920 / 1109;
+  position: relative;
+  background: var(--canvas);
+  container-type: inline-size;
+  container-name: slide;
+  overflow: hidden;
+}
+
+/* --- Header chrome --- */
+
+.chrome {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 8.2%;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.save-pill {
+  position: absolute;
+  left: 2.35%;
+  top: 38%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55cqw;
+  height: 3.05cqw;
+  padding: 0 1.15cqw 0 0.95cqw;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pill);
+  color: #fff;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 1.05cqw;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.save-pill svg {
+  width: 1.15cqw;
+  height: 1.15cqw;
+  display: block;
+  flex-shrink: 0;
+}
+
+.rule {
+  position: absolute;
+  left: 13.4%;
+  right: 2.4%;
+  top: 52%;
+  height: 1px;
+  background: var(--line);
+}
+
+.meta {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.85cqw;
+  background: var(--canvas);
+  color: var(--meta);
+  font-size: 0.78cqw;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.meta-platform {
+  left: 29.4%;
+}
+
+.meta-workshop {
+  left: 69.2%;
+}
+
+.meta-pages {
+  left: auto;
+  right: 0;
+  transform: translate(0, -50%);
+  padding-right: 0;
+}
+
+/* --- Title block --- */
+
+.title {
+  position: absolute;
+  left: 2.55%;
+  top: 11.6%;
+  z-index: 6;
+  width: 20%;
+}
+
+.title h1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 3.55cqw;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  color: var(--ink);
+}
+
+.title .dot {
+  color: var(--dot);
+}
+
+.title .kicker {
+  margin-top: 1.15cqw;
+  font-size: 1.18cqw;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #3a3a3a;
+}
+
+/* --- Shared node placement --- */
+
+.hub,
+.bubble,
+.photo {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+}
+
+/* --- Large cluster hubs --- */
+
+.hub {
+  z-index: 1;
+  width: 16.55cqw;
+  height: 16.55cqw;
+  display: grid;
+  place-items: center;
+  border: 0.145cqw solid var(--hub-ring);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.72cqw;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+/* --- Small labeled bubbles --- */
+
+.bubble {
+  z-index: 2;
+  width: 6.15cqw;
+  height: 6.15cqw;
+  display: grid;
+  place-items: center;
+  border: 0.12cqw solid var(--ring);
+  border-radius: 50%;
+  background: #fbfbfb;
+  color: #2a2a2a;
+  font-size: 0.72cqw;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  text-align: center;
+  padding: 0.35cqw;
+}
+
+.bubble span {
+  max-width: 90%;
+}
+
+.bubble.is-wide {
+  font-size: 0.64cqw;
+  line-height: 1.15;
+}
+
+/* --- Geometric placeholder portraits --- */
+
+.photo {
+  z-index: 3;
+  width: 5.55cqw;
+  height: 5.55cqw;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg, #ddd);
+  box-shadow: 0 0 0 0.06cqw rgba(255, 255, 255, 0.4);
+}
+
+.photo .shirt {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -18%;
+  height: 52%;
+  background: var(--shirt);
+  border-radius: 50% 50% 40% 40%;
+}
+
+.photo .head {
+  position: absolute;
+  left: 50%;
+  top: 34%;
+  width: 42%;
+  height: 42%;
+  background: var(--skin);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.photo .hair {
+  position: absolute;
+  z-index: 2;
+  background: var(--hair);
+  pointer-events: none;
+}
+
+.photo[data-hair="lob"] .hair {
+  left: 22%;
+  top: 8%;
+  width: 56%;
+  height: 38%;
+  border-radius: 50% 50% 42% 42%;
+}
+
+.photo[data-hair="lob"] .hair::after {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: 45%;
+  height: 70%;
+  background: var(--hair);
+  border-radius: 40%;
+}
+
+.photo[data-hair="pixie"] .hair {
+  left: 24%;
+  top: 10%;
+  width: 52%;
+  height: 28%;
+  border-radius: 50% 50% 20% 20%;
+}
+
+.photo[data-hair="blonde"] .hair {
+  left: 23%;
+  top: 7%;
+  width: 54%;
+  height: 32%;
+  border-radius: 60% 60% 30% 30%;
+}
+
+.photo[data-hair="bun"] .hair {
+  left: 26%;
+  top: 14%;
+  width: 48%;
+  height: 26%;
+  border-radius: 50%;
+}
+
+.photo[data-hair="bun"] .hair::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -42%;
+  width: 38%;
+  height: 48%;
+  background: var(--hair);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.photo[data-hair="bald"] .hair {
+  display: none;
+}
+
+.photo[data-hair="bald"] .head {
+  top: 32%;
+  width: 44%;
+  height: 44%;
+}
+
+.photo[data-hair="short"] .hair {
+  left: 25%;
+  top: 11%;
+  width: 50%;
+  height: 24%;
+  border-radius: 50% 50% 12% 12%;
+}
+
+.photo[data-hair="baby"] .head {
+  top: 38%;
+  width: 46%;
+  height: 46%;
+}
+
+.photo[data-hair="baby"] .hair {
+  left: 30%;
+  top: 16%;
+  width: 40%;
+  height: 18%;
+  border-radius: 50%;
+  opacity: 0.55;
+}
+
+.photo[data-hair="baby"] .shirt {
+  display: none;
+}
+
+.photo[data-hair="buzz"] .hair {
+  left: 26%;
+  top: 12%;
+  width: 48%;
+  height: 16%;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.85;
+}
+
+.photo[data-hair="long"] .hair {
+  left: 20%;
+  top: 10%;
+  width: 60%;
+  height: 58%;
+  border-radius: 50% 50% 18% 18%;
+}
+
+.photo[data-hair="elder"] .hair {
+  left: 22%;
+  top: 10%;
+  width: 56%;
+  height: 22%;
+  border-radius: 50% 50% 10% 10%;
+}
+
+.photo[data-hair="crop"] .hair {
+  left: 24%;
+  top: 9%;
+  width: 52%;
+  height: 30%;
+  border-radius: 55% 55% 20% 20%;
+}
+
+.photo[data-hair="curly"] .hair {
+  left: 18%;
+  top: 6%;
+  width: 64%;
+  height: 42%;
+  border-radius: 50%;
+}
+
+.photo[data-hair="fringe"] .hair {
+  left: 22%;
+  top: 8%;
+  width: 56%;
+  height: 34%;
+  border-radius: 50% 50% 40% 40%;
+}
+
+.photo[data-hair="ponytail"] .hair {
+  left: 24%;
+  top: 10%;
+  width: 52%;
+  height: 28%;
+  border-radius: 50% 50% 20% 20%;
+}
+
+.photo[data-hair="ponytail"] .hair::after {
+  content: "";
+  position: absolute;
+  right: -18%;
+  top: 20%;
+  width: 28%;
+  height: 55%;
+  background: var(--hair);
+  border-radius: 40%;
+}
+
+.photo[data-hair="beard"] .hair {
+  left: 26%;
+  top: 12%;
+  width: 48%;
+  height: 18%;
+  border-radius: 50% 50% 0 0;
+}
+
+.photo[data-hair="beard"] .head::after {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -12%;
+  height: 28%;
+  background: var(--hair);
+  border-radius: 40%;
+  opacity: 0.7;
+}
+
+.photo[data-hair="topknot"] .hair {
+  left: 28%;
+  top: 12%;
+  width: 44%;
+  height: 22%;
+  border-radius: 50%;
+}
+
+.photo[data-hair="topknot"] .hair::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -55%;
+  width: 42%;
+  height: 55%;
+  background: var(--hair);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hover is a light workshop-board affordance; rest state matches the slide. */
+
+.bubble,
+.photo,
+.hub {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.bubble:hover,
+.photo:hover {
+  z-index: 5;
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.hub:hover {
+  z-index: 4;
+  transform: translate(-50%, -50%) scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .photo,
+  .hub {
+    transition: none;
+  }
+
+  .bubble:hover,
+  .photo:hover,
+  .hub:hover {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    overflow: auto;
+    place-items: start center;
+  }
+
+  .slide {
+    --w: 100vw;
+    margin: 0 auto;
+  }
 }

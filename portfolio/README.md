@@ -1,6 +1,6 @@
 # Nancy Ma Portfolio
 
-Blank page.
+Homepage recreates the “04. Publics. / Cibles externes” workshop slide: three cluster hubs (Patients, Recrutement, Partenaires), labeled bubbles, and geometric placeholder portraits on a pale gray canvas.
 
 ```bash
 cd portfolio
