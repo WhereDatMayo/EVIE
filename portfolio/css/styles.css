@@ -479,104 +479,131 @@ button:focus-visible {
 }
 
 /* --------------------------------------------------------------------------
-   NVA case study — Figma Desktop - 1 (24:5)
-   6 equal columns, 22px gap. Side columns are the page margins.
+   Case study pages (opened from a book / View project)
    -------------------------------------------------------------------------- */
 
-.nva-page {
-  position: relative;
-  width: min(100%, var(--page-max));
-  margin-inline: auto;
-  min-height: 100vh;
+.study {
+  width: min(100% - 3rem, 760px);
+  margin: 0 auto;
+  padding: 2.25rem 0 4.5rem;
 }
 
-.nva-back {
-  position: absolute;
-  left: var(--home-inset);
-  top: 21px;
-  font-size: 12px;
-  font-weight: 700;
+.study__back {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-decoration: none;
-  z-index: 1;
+  color: #7a7468;
+  margin-bottom: 2.25rem;
 }
 
-.nva-back:hover {
-  text-decoration: underline;
+.study__back:hover {
+  color: #2b2720;
 }
 
-.nva-grid {
+.study__kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7a7468;
+  margin-bottom: 0.6rem;
+}
+
+.study h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin-bottom: 0.85rem;
+}
+
+.study__lede {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  color: #5c564c;
+  margin-bottom: 1.5rem;
+}
+
+.study__meta {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  column-gap: 22px;
-  row-gap: 0;
-  padding: 154px 0 133px;
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0 1.75rem;
+  border-top: 1px solid #d8d2c6;
+  border-bottom: 1px solid #d8d2c6;
+  margin-bottom: 2rem;
 }
 
-.nva-title {
-  grid-column: 2;
-  grid-row: 1;
-  font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 400;
-  font-synthesis: none;
-  line-height: normal;
-  width: min(100%, 362px);
-  color: #000;
-  margin-bottom: 63px;
-  white-space: nowrap;
+.study__meta dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a8376;
+  margin-bottom: 0.25rem;
 }
 
-.nva-frame {
-  grid-column: 2 / span 4;
-  grid-row: 2;
+.study__meta dd {
+  font-size: 0.95rem;
+}
+
+.study h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 2.25rem 0 0.75rem;
+}
+
+.study p,
+.study li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3f3a33;
+}
+
+.study p + p {
+  margin-top: 0.9rem;
+}
+
+.study ul {
+  margin: 0.5rem 0 0 1.2rem;
+}
+
+.study figure {
+  margin: 1.5rem 0 0.5rem;
+}
+
+.study figure img {
   width: 100%;
-  height: 477px;
-  border: 10px solid var(--nva-green);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--preview);
-  margin-bottom: 131px;
+  height: auto;
+  border-radius: 4px;
 }
 
-.nva-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+.study figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #8a8376;
 }
 
-.nva-tile {
-  grid-row: 3;
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
-  background: var(--preview);
+.study__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d8d2c6;
+  font-size: 0.9rem;
 }
 
-.nva-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.study__nav a {
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.nva-tile--nva {
-  grid-column: 2;
-  border: 9px solid var(--nva-green);
-}
-
-.nva-tile--huggies {
-  grid-column: 3;
-}
-
-.nva-tile--ethos {
-  grid-column: 4;
-  border: 3px solid var(--ethos-blue);
-}
-
-.nva-tile--sjsu {
-  grid-column: 5;
+.study__nav a:hover {
+  text-decoration: underline;
 }
 
 /* --------------------------------------------------------------------------
@@ -670,43 +697,8 @@ button:focus-visible {
     aspect-ratio: 1004 / 680;
   }
 
-  .nva-back {
-    left: 20px;
-    top: 16px;
-  }
-
-  .nva-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 64px 20px 48px;
-    row-gap: 16px;
-    column-gap: 16px;
-  }
-
-  .nva-title,
-  .nva-frame {
-    grid-column: 1 / -1;
-  }
-
-  .nva-title {
-    width: auto;
-    font-size: 24px;
-    margin-bottom: 16px;
-    white-space: normal;
-  }
-
-  .nva-frame {
-    height: auto;
-    aspect-ratio: 952.67 / 477;
-    margin-bottom: 16px;
-  }
-
-  .nva-tile,
-  .nva-tile--nva,
-  .nva-tile--huggies,
-  .nva-tile--ethos,
-  .nva-tile--sjsu {
-    grid-column: auto;
-    grid-row: auto;
+  .study {
+    width: min(100% - 2rem, 760px);
   }
 }
 
