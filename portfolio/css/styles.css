@@ -241,6 +241,7 @@ button:focus-visible {
 .shelf__intro {
   max-width: 22rem;
   z-index: 2;
+  animation: rise-in 0.7s ease both;
 }
 
 .shelf__kicker {
@@ -258,6 +259,13 @@ button:focus-visible {
   letter-spacing: -0.03em;
   line-height: 0.95;
   margin-bottom: 0.85rem;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.shelf__lede,
+.shelf__meta dd,
+.shelf__stat {
+  transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .shelf__lede {
@@ -266,6 +274,11 @@ button:focus-visible {
   color: #5c564c;
   max-width: 20rem;
   margin-bottom: 1.25rem;
+}
+
+.is-swapping {
+  opacity: 0;
+  transform: translateY(8px);
 }
 
 .shelf__meta {
@@ -289,10 +302,12 @@ button:focus-visible {
 .shelf__meta a {
   text-decoration: none;
   font-weight: 600;
+  display: inline-block;
+  transition: transform 200ms ease;
 }
 
 .shelf__meta a:hover {
-  text-decoration: underline;
+  transform: translateX(4px);
 }
 
 .shelf__stage {
@@ -317,6 +332,12 @@ button:focus-visible {
   box-shadow: 10px 18px 40px rgba(20, 16, 24, 0.18);
   text-indent: -9999px;
   overflow: hidden;
+  animation: rise-in 0.8s ease 0.05s both;
+  transition: transform 220ms ease, filter 220ms ease;
+}
+
+.book-spine:hover {
+  transform: translateY(-8px);
 }
 
 .book-spine:focus-visible {
@@ -331,20 +352,24 @@ button:focus-visible {
   color: inherit;
   flex: 0 0 auto;
   filter: drop-shadow(12px 24px 28px rgba(40, 32, 20, 0.18));
-  transition: transform 220ms ease, filter 220ms ease;
   transform: perspective(900px) rotateY(-8deg);
+  transform-origin: center bottom;
+  animation: book-in 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1), filter 280ms ease;
 }
 
 .book:hover,
 .book:focus-visible,
 .book.is-featured {
-  transform: perspective(900px) rotateY(-8deg) translateY(-12px);
-  filter: drop-shadow(14px 30px 32px rgba(40, 32, 20, 0.24));
+  transform: perspective(900px) rotateY(-12deg) translateY(-16px) scale(1.03);
+  filter: drop-shadow(16px 32px 34px rgba(40, 32, 20, 0.28));
+  z-index: 3;
 }
 
 .book--cream {
   align-self: flex-end;
   margin-bottom: 1.5rem;
+  animation-delay: 0.08s;
 }
 
 .book--forest {
@@ -352,18 +377,21 @@ button:focus-visible {
   width: min(250px, 30vw);
   height: 360px;
   z-index: 2;
+  animation-delay: 0.2s;
 }
 
 .book--clay {
   align-self: flex-start;
   margin-top: 1.5rem;
   transform: perspective(900px) rotateY(-8deg) rotate(5deg);
+  animation-name: book-in-tilt;
+  animation-delay: 0.34s;
 }
 
 .book--clay:hover,
 .book--clay:focus-visible,
 .book--clay.is-featured {
-  transform: perspective(900px) rotateY(-8deg) rotate(5deg) translateY(-12px);
+  transform: perspective(900px) rotateY(-12deg) rotate(5deg) translateY(-16px) scale(1.03);
 }
 
 .book__pages {
@@ -406,8 +434,18 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent 82%, rgba(255, 255, 255, 0.14));
+  background:
+    linear-gradient(90deg, transparent 82%, rgba(255, 255, 255, 0.14)),
+    linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.22) 48%, transparent 56%);
+  background-size: 100% 100%, 220% 100%;
+  background-position: 0 0, 120% 0;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: background-position 600ms ease;
+}
+
+.book:hover .book__cover::after,
+.book:focus-visible .book__cover::after {
+  background-position: 0 0, -20% 0;
 }
 
 .book--cream .book__cover {
@@ -463,6 +501,7 @@ button:focus-visible {
   padding-top: 0.5rem;
   color: #6d675c;
   font-size: 0.86rem;
+  animation: rise-in 0.7s ease 0.35s both;
 }
 
 .shelf__stat span {
@@ -486,6 +525,7 @@ button:focus-visible {
   width: min(100% - 3rem, 760px);
   margin: 0 auto;
   padding: 2.25rem 0 4.5rem;
+  animation: rise-in 0.65s ease both;
 }
 
 .study__back {
@@ -702,9 +742,53 @@ button:focus-visible {
   }
 }
 
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes book-in {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateY(-8deg) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateY(-8deg) translateY(0);
+  }
+}
+
+@keyframes book-in-tilt {
+  from {
+    opacity: 0;
+    transform: perspective(900px) rotateY(-8deg) rotate(5deg) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(900px) rotateY(-8deg) rotate(5deg) translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .shelf__intro,
+  .shelf__foot,
+  .book,
+  .book--cream,
+  .book--forest,
+  .book--clay,
+  .book-spine,
+  .study {
+    animation: none !important;
   }
 
   .book,
@@ -714,8 +798,15 @@ button:focus-visible {
   .book.is-featured,
   .book--clay:hover,
   .book--clay:focus-visible,
-  .book--clay.is-featured {
+  .book--clay.is-featured,
+  .book-spine:hover,
+  .shelf__meta a:hover {
     transition: none;
+    transform: none;
+  }
+
+  .is-swapping {
+    opacity: 1;
     transform: none;
   }
 }
