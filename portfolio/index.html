@@ -7,78 +7,112 @@
   <meta name="description" content="Nancy Ma is a UX designer. Selected work: NVA, Huggies, Salesforce, and Kimberly-Clark.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="home">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header">
-    <a class="wordmark" href="index.html">Nancy Ma</a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="#work" aria-current="page">Work</a>
+  <header class="masthead">
+    <a class="logo" href="index.html" aria-label="Nancy Ma home">
+      <svg viewBox="0 0 40 24" width="40" height="24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <circle cx="28" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+      </svg>
+    </a>
+    <nav class="masthead__nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Work</a>
       <a href="about.html">About</a>
     </nav>
+    <a class="masthead__contact" href="mailto:nancy.ma@sjsu.edu">Contact</a>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <p class="eyebrow">UX designer</p>
-      <h1>Nancy Ma</h1>
-      <p class="lede">
-        I design products and brands so people can find the right path —
-        and so the teams behind them can tell one clear story.
-      </p>
-    </section>
+    <div class="board-head">
+      <h1>Work</h1>
+      <div class="board-controls">
+        <button type="button" class="board-btn" id="work-prev" aria-label="Previous projects">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M14.5 5.5 8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button type="button" class="board-btn" id="work-next" aria-label="Next projects">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M9.5 5.5 16 12l-6.5 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
 
-    <section id="work" class="work" aria-labelledby="work-heading">
-      <h2 id="work-heading">Selected work</h2>
-      <ul class="work-list">
-        <li>
-          <a class="work-item" href="work/nva.html">
-            <div class="work-item__top">
-              <h3>NVA</h3>
-              <p class="work-item__type">Product · Brand</p>
-            </div>
-            <p class="work-item__lede">A continuum of care for veterinary practices and the people who run them.</p>
-            <span class="work-item__go" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-item" href="work/huggies.html">
-            <div class="work-item__top">
-              <h3>Huggies</h3>
-              <p class="work-item__type">UX · Consumer</p>
-            </div>
-            <p class="work-item__lede">A warmer path through diapers, care, and the first thousand days.</p>
-            <span class="work-item__go" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-item" href="work/salesforce.html">
-            <div class="work-item__top">
-              <h3>Salesforce</h3>
-              <p class="work-item__type">UX · Enterprise</p>
-            </div>
-            <p class="work-item__lede">Practice the hard conversations out loud — with a little help from AI.</p>
-            <span class="work-item__go" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-item" href="work/kimberly-clark.html">
-            <div class="work-item__top">
-              <h3>Kimberly-Clark</h3>
-              <p class="work-item__type">Brand · Product</p>
-            </div>
-            <p class="work-item__lede">Make the next everyday product feel considered, not just familiar.</p>
-            <span class="work-item__go" aria-hidden="true">→</span>
-          </a>
-        </li>
-      </ul>
+    <section class="board" id="work" aria-label="Selected work">
+      <div class="board__track" id="work-track">
+        <a class="cover" href="work/nva.html">
+          <div class="cover__art cover--nva">
+            <span class="cover__code">01</span>
+            <span class="cover__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 24" width="28" height="17">
+                <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                <circle cx="28" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              </svg>
+            </span>
+            <h2>NVA</h2>
+            <span class="cover__shape" aria-hidden="true"></span>
+          </div>
+          <p class="cover__pill">01</p>
+          <p class="cover__title">A continuum of care for veterinary practices and the people who run them.</p>
+          <p class="cover__meta">Product · Brand</p>
+        </a>
+
+        <a class="cover" href="work/huggies.html">
+          <div class="cover__art cover--huggies">
+            <span class="cover__code">02</span>
+            <span class="cover__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 24" width="28" height="17">
+                <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                <circle cx="28" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              </svg>
+            </span>
+            <h2>Huggies</h2>
+            <span class="cover__shape" aria-hidden="true"></span>
+          </div>
+          <p class="cover__pill">02</p>
+          <p class="cover__title">A warmer path through diapers, care, and the first thousand days.</p>
+          <p class="cover__meta">UX · Consumer</p>
+        </a>
+
+        <a class="cover" href="work/salesforce.html">
+          <div class="cover__art cover--salesforce">
+            <span class="cover__code">03</span>
+            <span class="cover__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 24" width="28" height="17">
+                <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                <circle cx="28" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              </svg>
+            </span>
+            <h2>Salesforce</h2>
+            <span class="cover__shape" aria-hidden="true"></span>
+          </div>
+          <p class="cover__pill">03</p>
+          <p class="cover__title">Practice the hard conversations out loud — with a little help from AI.</p>
+          <p class="cover__meta">UX · Enterprise</p>
+        </a>
+
+        <a class="cover" href="work/kimberly-clark.html">
+          <div class="cover__art cover--kc">
+            <span class="cover__code">04</span>
+            <span class="cover__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 24" width="28" height="17">
+                <circle cx="12" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+                <circle cx="28" cy="12" r="9.2" fill="none" stroke="currentColor" stroke-width="2.2"/>
+              </svg>
+            </span>
+            <h2>Kimberly-Clark</h2>
+            <span class="cover__shape" aria-hidden="true"></span>
+          </div>
+          <p class="cover__pill">04</p>
+          <p class="cover__title">Make the next everyday product feel considered, not just familiar.</p>
+          <p class="cover__meta">Brand · Product</p>
+        </a>
+      </div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <a href="mailto:nancy.ma@sjsu.edu">nancy.ma@sjsu.edu</a>
-    <p>© <span id="year"></span> Nancy Ma</p>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>

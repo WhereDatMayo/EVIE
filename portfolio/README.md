@@ -1,10 +1,10 @@
 # Nancy Ma Portfolio
 
-A simple static UX portfolio.
+A static UX portfolio. Home is a horizontal work board of case-study cards.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | Home — intro and selected work |
+| `index.html` | Work board — NVA, Huggies, Salesforce, Kimberly-Clark |
 | `about.html` | About and contact |
 | `work/nva.html` | NVA case study |
 | `work/huggies.html`, `salesforce.html`, `kimberly-clark.html` | Case study pages to fill in |
