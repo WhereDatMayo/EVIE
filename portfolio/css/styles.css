@@ -330,15 +330,16 @@ button:focus-visible {
   text-decoration: none;
   color: inherit;
   flex: 0 0 auto;
-  filter: drop-shadow(0 22px 28px rgba(40, 32, 20, 0.16));
+  filter: drop-shadow(12px 24px 28px rgba(40, 32, 20, 0.18));
   transition: transform 220ms ease, filter 220ms ease;
+  transform: perspective(900px) rotateY(-8deg);
 }
 
 .book:hover,
 .book:focus-visible,
 .book.is-featured {
-  transform: translateY(-10px);
-  filter: drop-shadow(0 28px 34px rgba(40, 32, 20, 0.22));
+  transform: perspective(900px) rotateY(-8deg) translateY(-12px);
+  filter: drop-shadow(14px 30px 32px rgba(40, 32, 20, 0.24));
 }
 
 .book--cream {
@@ -356,27 +357,28 @@ button:focus-visible {
 .book--clay {
   align-self: flex-start;
   margin-top: 1.5rem;
-  transform: rotate(6deg);
+  transform: perspective(900px) rotateY(-8deg) rotate(5deg);
 }
 
 .book--clay:hover,
 .book--clay:focus-visible,
 .book--clay.is-featured {
-  transform: rotate(6deg) translateY(-10px);
+  transform: perspective(900px) rotateY(-8deg) rotate(5deg) translateY(-12px);
 }
 
 .book__pages {
   position: absolute;
-  inset: 8px -9px 8px auto;
-  width: 11px;
+  inset: 10px -13px 10px auto;
+  width: 14px;
   background:
+    linear-gradient(90deg, #f3efe6, #fff 40%, #f7f2e8),
     repeating-linear-gradient(
       180deg,
-      #fff 0 2px,
-      #efe8d8 2px 3px
+      #fff 0 3px,
+      #e8e0d0 3px 4px
     );
-  border-radius: 0 2px 2px 0;
-  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05);
+  border-radius: 0 3px 3px 0;
+  box-shadow: 2px 0 0 rgba(0, 0, 0, 0.04);
 }
 
 .book__cover {
@@ -395,8 +397,17 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
-  width: 11px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.16), rgba(0, 0, 0, 0.02));
+  width: 14px;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.03));
+}
+
+.book__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent 82%, rgba(255, 255, 255, 0.14));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .book--cream .book__cover {
@@ -621,7 +632,11 @@ button:focus-visible {
     margin: 0;
   }
 
+  .book,
   .book--clay,
+  .book:hover,
+  .book:focus-visible,
+  .book.is-featured,
   .book--clay:hover,
   .book--clay:focus-visible,
   .book--clay.is-featured {
