@@ -1,5 +1,3 @@
-/* Portfolio 2027 — adapted from Figma Desktop - 1 / Desktop - 2 */
-
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -9,23 +7,24 @@
 }
 
 @font-face {
-  font-family: "Kosugi Maru";
+  font-family: "Noto Sans KR";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-display: swap;
-  src: url("../fonts/kosugi-maru-latin.woff2") format("woff2");
+  src: url("../fonts/noto-sans-kr-save.ttf") format("truetype");
 }
 
 :root {
-  --ink: #0d0000;
-  --paper: #ffffff;
-  --preview: #d9d9d9;
-  --nva-green: #62b12d;
-  --ethos-blue: #2a44c5;
+  --canvas: #f6f6f6;
+  --ink: #111111;
+  --muted: #5c5c5c;
+  --meta: #9a9a9a;
+  --line: #dcdcdc;
+  --ring: #c8c8c8;
+  --hub-ring: #c2c2c2;
+  --dot: #c4142e;
+  --pill: #3d3d3d;
   --font: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-display: "Kosugi Maru", "Hiragino Maru Gothic ProN", "Segoe UI", sans-serif;
-  --home-inset: 67px;
-  --page-max: 1440px;
 }
 
 *,
@@ -36,360 +35,507 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+  background: var(--canvas);
 }
 
 body {
-  font-family: var(--font);
-  background: var(--paper);
+  display: grid;
+  place-items: center;
   color: var(--ink);
-  min-height: 100vh;
-  line-height: 1.21;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-}
-
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
+  font-family: var(--font);
+  overflow: hidden;
 }
 
 .skip-link {
   position: absolute;
   left: 1rem;
-  top: -100px;
-  background: var(--ink);
-  color: var(--paper);
+  top: -3rem;
+  z-index: 20;
   padding: 0.5rem 0.75rem;
-  z-index: 200;
+  background: var(--ink);
+  color: #fff;
+  text-decoration: none;
 }
 
 .skip-link:focus {
-  top: 0.5rem;
+  top: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   Home — Figma Desktop - 2 (30:15)
-   -------------------------------------------------------------------------- */
-
-.home {
-  width: min(100%, var(--page-max));
-  margin-inline: auto;
-  padding: 21px var(--home-inset) 80px;
-}
-
-.home__title {
-  font-weight: 700;
-  font-size: clamp(2.5rem, 8.2vw, 100px);
-  line-height: 1.21;
-  letter-spacing: -0.02em;
-  margin-bottom: 0;
-}
-
-.home__body {
-  display: flex;
-  align-items: flex-start;
-  gap: 58px;
-  margin-top: 0;
-}
-
-.home__rail {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 0 0 238px;
-  width: 238px;
-}
-
-.stamp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  width: 75px;
-  padding: 12px 8px;
-  border: 1px solid #000;
-  background: #fff;
-  font-size: 12px;
-  line-height: normal;
-  color: var(--ink);
-}
-
-.stamp__dow,
-.stamp__num {
-  font-size: 12px;
-  line-height: normal;
-}
-
-.stamp__dow {
-  font-weight: 700;
-  width: 100%;
-}
-
-.stamp__num {
-  font-weight: 400;
-  text-align: center;
-  width: 100%;
-}
-
-.studies {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  width: 238px;
-  min-height: 185px;
-  padding: 12px 24px;
-  border: 1px solid #000;
-  background: #fff;
-  font-size: 12px;
-  line-height: normal;
-  color: var(--ink);
-}
-
-.studies__label {
-  font-weight: 700;
-}
-
-.studies a {
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.studies a:hover,
-.studies a[aria-current="page"] {
-  text-decoration: underline;
-}
-
-.home__preview {
-  flex: 1 1 auto;
-  width: min(100%, 1004px);
-  height: 680px;
-  background: var(--preview);
+.slide {
+  --w: min(100vw, calc(100vh * 1920 / 1109));
+  width: var(--w);
+  aspect-ratio: 1920 / 1109;
+  position: relative;
+  background: var(--canvas);
+  container-type: inline-size;
+  container-name: slide;
   overflow: hidden;
 }
 
-.home__preview a,
-.home__preview img {
-  width: 100%;
-  height: 100%;
-}
+/* --- Header chrome --- */
 
-.home__preview img {
-  object-fit: contain;
-  object-position: top center;
-  background: var(--preview);
-}
-
-.home__preview-empty {
-  width: 100%;
-  height: 100%;
-  background: var(--preview);
-}
-
-/* --------------------------------------------------------------------------
-   NVA case study — Figma Desktop - 1 (24:5)
-   6 equal columns, 22px gap. Side columns are the page margins.
-   -------------------------------------------------------------------------- */
-
-.nva-page {
-  position: relative;
-  width: min(100%, var(--page-max));
-  margin-inline: auto;
-  min-height: 100vh;
-}
-
-.nva-back {
+.chrome {
   position: absolute;
-  left: var(--home-inset);
-  top: 21px;
-  font-size: 12px;
-  font-weight: 700;
-  text-decoration: none;
-  z-index: 1;
+  inset: 0 0 auto 0;
+  height: 8.2%;
+  z-index: 6;
+  pointer-events: none;
 }
 
-.nva-back:hover {
-  text-decoration: underline;
+.save-pill {
+  position: absolute;
+  left: 2.35%;
+  top: 38%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55cqw;
+  height: 3.05cqw;
+  padding: 0 1.15cqw 0 0.95cqw;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pill);
+  color: #fff;
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 1.05cqw;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  pointer-events: auto;
+  cursor: default;
 }
 
-.nva-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  column-gap: 22px;
-  row-gap: 0;
-  padding: 154px 0 133px;
-  align-items: start;
+.save-pill svg {
+  width: 1.15cqw;
+  height: 1.15cqw;
+  display: block;
+  flex-shrink: 0;
 }
 
-.nva-title {
-  grid-column: 2;
-  grid-row: 1;
-  font-family: var(--font-display);
-  font-size: 32px;
+.rule {
+  position: absolute;
+  left: 13.4%;
+  right: 2.4%;
+  top: 52%;
+  height: 1px;
+  background: var(--line);
+}
+
+.meta {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 0.85cqw;
+  background: var(--canvas);
+  color: var(--meta);
+  font-size: 0.78cqw;
   font-weight: 400;
-  font-synthesis: none;
-  line-height: normal;
-  width: min(100%, 362px);
-  color: #000;
-  margin-bottom: 63px;
+  letter-spacing: 0.01em;
   white-space: nowrap;
 }
 
-.nva-frame {
-  grid-column: 2 / span 4;
-  grid-row: 2;
-  width: 100%;
-  height: 477px;
-  border: 10px solid var(--nva-green);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--preview);
-  margin-bottom: 131px;
+.meta-platform {
+  left: 29.4%;
 }
 
-.nva-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+.meta-workshop {
+  left: 69.2%;
 }
 
-.nva-tile {
-  grid-row: 3;
-  width: 100%;
-  height: 160px;
-  overflow: hidden;
-  background: var(--preview);
+.meta-pages {
+  left: auto;
+  right: 0;
+  transform: translate(0, -50%);
+  padding-right: 0;
 }
 
-.nva-tile img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+/* --- Title block --- */
+
+.title {
+  position: absolute;
+  left: 2.55%;
+  top: 11.6%;
+  z-index: 6;
+  width: 20%;
 }
 
-.nva-tile--nva {
-  grid-column: 2;
-  border: 9px solid var(--nva-green);
-}
-
-.nva-tile--huggies {
-  grid-column: 3;
-}
-
-.nva-tile--ethos {
-  grid-column: 4;
-  border: 3px solid var(--ethos-blue);
-}
-
-.nva-tile--sjsu {
-  grid-column: 5;
-}
-
-/* --------------------------------------------------------------------------
-   About (same type system; not in the Figma frames)
-   -------------------------------------------------------------------------- */
-
-.about {
-  width: min(100% - 2 * var(--home-inset), 720px);
-  margin: 21px auto 80px;
-}
-
-.about h1 {
+.title h1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 3.55cqw;
   font-weight: 700;
-  font-size: clamp(2rem, 6vw, 48px);
-  margin: 1.5rem 0 1rem;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  color: var(--ink);
 }
 
-.about p {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 1rem;
+.title .dot {
+  color: var(--dot);
 }
 
-.about a {
-  font-weight: 700;
+.title .kicker {
+  margin-top: 1.15cqw;
+  font-size: 1.18cqw;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: #4a4a4a;
 }
 
-/* --------------------------------------------------------------------------
-   Mobile
-   -------------------------------------------------------------------------- */
+/* --- Shared node placement --- */
 
-@media (max-width: 900px) {
-  .home {
-    padding: 24px 20px 48px;
-  }
+.hub,
+.bubble,
+.photo {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+}
 
-  .home__body {
-    flex-direction: column;
-    gap: 24px;
-  }
+/* --- Large cluster hubs --- */
 
-  .home__rail {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    flex-basis: auto;
-  }
+.hub {
+  z-index: 1;
+  width: 16.55cqw;
+  height: 16.55cqw;
+  display: grid;
+  place-items: center;
+  border: 0.145cqw solid var(--hub-ring);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.88cqw;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
 
-  .home__preview {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1004 / 680;
-  }
+/* --- Small labeled bubbles --- */
 
-  .nva-back {
-    left: 20px;
-    top: 16px;
-  }
+.bubble {
+  z-index: 2;
+  width: 6.15cqw;
+  height: 6.15cqw;
+  display: grid;
+  place-items: center;
+  border: 0.12cqw solid var(--ring);
+  border-radius: 50%;
+  background: #fbfbfb;
+  color: #2a2a2a;
+  font-size: 0.82cqw;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  text-align: center;
+  padding: 0.3cqw;
+}
 
-  .nva-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 64px 20px 48px;
-    row-gap: 16px;
-    column-gap: 16px;
-  }
+.bubble span {
+  max-width: 88%;
+}
 
-  .nva-title,
-  .nva-frame {
-    grid-column: 1 / -1;
-  }
+.bubble.is-wide {
+  font-size: 0.72cqw;
+  line-height: 1.15;
+}
 
-  .nva-title {
-    width: auto;
-    font-size: 24px;
-    margin-bottom: 16px;
-    white-space: normal;
-  }
+.bubble.is-roomy {
+  width: 6.7cqw;
+  height: 6.7cqw;
+  font-size: 0.66cqw;
+  line-height: 1.2;
+}
 
-  .nva-frame {
-    height: auto;
-    aspect-ratio: 952.67 / 477;
-    margin-bottom: 16px;
-  }
+/* --- Geometric placeholder portraits --- */
 
-  .nva-tile,
-  .nva-tile--nva,
-  .nva-tile--huggies,
-  .nva-tile--ethos,
-  .nva-tile--sjsu {
-    grid-column: auto;
-    grid-row: auto;
-  }
+.photo {
+  z-index: 3;
+  width: 5.55cqw;
+  height: 5.55cqw;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg, #ddd);
+  box-shadow: 0 0 0 0.06cqw rgba(255, 255, 255, 0.4);
+}
+
+.photo .shirt {
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: -16%;
+  height: 48%;
+  background: var(--shirt);
+  border-radius: 50% 50% 38% 38%;
+  z-index: 1;
+}
+
+.photo .head {
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  width: 40%;
+  height: 40%;
+  background: var(--skin);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.photo .head::before {
+  content: "";
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  top: -10%;
+  height: 48%;
+  background: var(--hair);
+  border-radius: 50% 50% 35% 35%;
+}
+
+.photo .hair {
+  position: absolute;
+  z-index: 0;
+  background: var(--hair);
+  pointer-events: none;
+}
+
+.photo[data-hair="lob"] .hair {
+  left: 18%;
+  top: 12%;
+  width: 64%;
+  height: 52%;
+  border-radius: 46% 46% 28% 28%;
+}
+
+.photo[data-hair="pixie"] .hair {
+  left: 24%;
+  top: 12%;
+  width: 52%;
+  height: 28%;
+  border-radius: 50% 50% 20% 20%;
+}
+
+.photo[data-hair="blonde"] .hair {
+  left: 20%;
+  top: 10%;
+  width: 60%;
+  height: 36%;
+  border-radius: 55% 55% 30% 30%;
+}
+
+.photo[data-hair="bun"] .hair {
+  left: 24%;
+  top: 10%;
+  width: 52%;
+  height: 30%;
+  border-radius: 50%;
+}
+
+.photo[data-hair="bun"] .hair::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -38%;
+  width: 36%;
+  height: 46%;
+  background: var(--hair);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.photo[data-hair="bald"] .hair,
+.photo[data-hair="bald"] .head::before {
+  display: none;
+}
+
+.photo[data-hair="bald"] .head {
+  top: 34%;
+  width: 44%;
+  height: 44%;
+}
+
+.photo[data-hair="short"] .hair {
+  left: 24%;
+  top: 12%;
+  width: 52%;
+  height: 26%;
+  border-radius: 50% 50% 12% 12%;
+}
+
+.photo[data-hair="baby"] .head {
+  top: 40%;
+  width: 46%;
+  height: 46%;
+}
+
+.photo[data-hair="baby"] .head::before {
+  height: 28%;
+  opacity: 0.45;
+}
+
+.photo[data-hair="baby"] .hair {
+  display: none;
+}
+
+.photo[data-hair="baby"] .shirt {
+  display: none;
+}
+
+.photo[data-hair="buzz"] .hair {
+  left: 26%;
+  top: 14%;
+  width: 48%;
+  height: 18%;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.8;
+}
+
+.photo[data-hair="buzz"] .head::before {
+  height: 22%;
+  opacity: 0.65;
+}
+
+.photo[data-hair="long"] .hair {
+  left: 16%;
+  top: 14%;
+  width: 68%;
+  height: 70%;
+  border-radius: 44% 44% 20% 20%;
+}
+
+.photo[data-hair="elder"] .hair {
+  left: 22%;
+  top: 12%;
+  width: 56%;
+  height: 24%;
+  border-radius: 50% 50% 10% 10%;
+}
+
+.photo[data-hair="elder"] .head::before {
+  background: var(--hair);
+  height: 36%;
+}
+
+.photo[data-hair="crop"] .hair {
+  left: 22%;
+  top: 12%;
+  width: 56%;
+  height: 30%;
+  border-radius: 50% 50% 18% 18%;
+}
+
+.photo[data-hair="curly"] .hair {
+  left: 16%;
+  top: 8%;
+  width: 68%;
+  height: 46%;
+  border-radius: 50%;
+}
+
+.photo[data-hair="fringe"] .hair {
+  left: 20%;
+  top: 12%;
+  width: 60%;
+  height: 40%;
+  border-radius: 48% 48% 24% 24%;
+}
+
+.photo[data-hair="ponytail"] .hair {
+  left: 22%;
+  top: 12%;
+  width: 56%;
+  height: 32%;
+  border-radius: 50% 50% 20% 20%;
+}
+
+.photo[data-hair="ponytail"] .hair::after {
+  content: "";
+  position: absolute;
+  right: -16%;
+  top: 18%;
+  width: 28%;
+  height: 70%;
+  background: var(--hair);
+  border-radius: 40%;
+}
+
+.photo[data-hair="beard"] .hair {
+  left: 26%;
+  top: 14%;
+  width: 48%;
+  height: 18%;
+  border-radius: 50% 50% 0 0;
+}
+
+.photo[data-hair="beard"] .head::after {
+  content: "";
+  position: absolute;
+  left: 16%;
+  right: 16%;
+  bottom: -14%;
+  height: 30%;
+  background: var(--hair);
+  border-radius: 40%;
+  opacity: 0.72;
+}
+
+.photo[data-hair="topknot"] .hair {
+  left: 26%;
+  top: 12%;
+  width: 48%;
+  height: 24%;
+  border-radius: 50%;
+}
+
+.photo[data-hair="topknot"] .hair::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -55%;
+  width: 42%;
+  height: 55%;
+  background: var(--hair);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+/* Hover is a light workshop-board affordance; rest state matches the slide. */
+
+.bubble,
+.photo,
+.hub {
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.bubble:hover,
+.photo:hover {
+  z-index: 5;
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.hub:hover {
+  z-index: 4;
+  transform: translate(-50%, -50%) scale(1.03);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .bubble,
+  .photo,
+  .hub {
+    transition: none;
+  }
+
+  .bubble:hover,
+  .photo:hover,
+  .hub:hover {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    overflow: auto;
   }
 }
